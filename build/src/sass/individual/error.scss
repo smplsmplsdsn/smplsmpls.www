@@ -1,0 +1,82 @@
+.error {
+  height: calc(100vh - 150px);
+  background-image: -webkit-gradient(linear, 0 0, 100% 100%, color-stop(.25, #fafbf5), color-stop(.25, transparent), color-stop(.5, transparent), color-stop(.5, #fafbf5), color-stop(.75, #fafbf5), color-stop(.75, transparent), to(transparent));
+  background-size: 14px 14px;
+
+  @media (max-width:$header-footer-breakpoint) {
+    height: calc(100vh - 80px);
+  }
+
+  &__bg {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    bottom: 60px;
+    z-index: 1;
+    padding: 0;
+    background: url(/assets/images/error.jpg) right center no-repeat;
+    background-size: 65% auto;
+
+    @media (max-width: 1000px) {
+      left: 30%;
+      background-position: right top;
+      background-size: cover;
+    }
+  }
+
+  &__contents {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+
+    display: flex;
+    align-items: center;
+  }
+
+  &__contents-inner {
+    margin-left: 30%;
+
+    @media (max-width: 1000px) {
+      margin-left: 10%;
+    }
+  }
+
+  h1 {
+    margin: 0 20px 30px;
+    line-height: 1.2;
+
+    .error__ja {
+      font-size: 24px;
+    }
+
+    .error__en {
+      font-size: 50px;
+    }
+  }
+
+  p {
+    margin: 20px;
+    line-height: 1.8;
+  }
+
+  &__ja,
+  &__en {
+    display: block;
+  }
+
+  a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 44px;
+    margin: 30px 0 0;
+    padding: 0 20px;
+    background: #333;
+    color: #fff;
+    border-radius: 30px;
+  }
+}

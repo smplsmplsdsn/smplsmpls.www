@@ -1,0 +1,13 @@
+RewriteEngine On
+RewriteBase /
+
+# リダイレクト除外フォルダ設定
+RewriteCond %{REQUEST_URI} !^/assets/
+RewriteCond %{REQUEST_URI} !^/api/
+
+# フォルダやファイルが存在しない場合のみリダイレクト
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# index.php にリダイレクト
+RewriteRule ^(.*)$ index.php [L]

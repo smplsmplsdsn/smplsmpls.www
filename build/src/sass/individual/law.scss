@@ -1,0 +1,80 @@
+.law {
+  max-width: 1000px;
+  margin: auto;
+  padding: 60px 40px;
+  line-height: 1.8;
+
+  @include sp {
+    padding: 40px 20px;
+  }
+
+  &__title {
+    margin: 0 0 40px;
+    text-align: center;
+    font-size: 24px;
+  }
+
+  section {
+    margin: 40px 0 0;
+
+    h1 {
+      font-size: 24px;
+    }
+
+    h2 {
+      font-size: 18px;
+    }
+  }
+
+  h1,
+  h2,
+  ul,
+  p {
+    margin: 20px 0 0;
+  }
+
+  ul {
+    padding-left: 1.5em;
+  }
+
+  h1 + h2,
+  h1 + p {
+    margin: 10px 0 0;
+  }
+
+  &__contact {
+    margin: 40px 0 0;
+    padding: 20px;
+    border: 1px solid #333;
+
+    h1 {
+      margin: 0;
+      font-size: 100%;
+    }
+
+    th {
+      text-align: left;
+      white-space: nowrap;
+    }
+
+    @include sp {
+      table,
+      tbody,
+      tr,
+      th,
+      td {
+        display: block;
+        margin: 0;
+        padding: 0;
+      }
+
+      table {
+        line-height: 1.2;
+      }
+
+      tr {
+        margin: 10px 0 0;
+      }
+    }
+  }
+}

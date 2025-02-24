@@ -1,0 +1,22 @@
+@mixin button {
+  all: unset;
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  height: 44px;
+  padding: 0 30px;
+  border: 2px solid #fff;
+  border-radius: 50px;
+  background: #35a81b;
+  color: #fff;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  cursor: pointer;
+  white-space: no-wrap;
+  transition: 0.35s;
+
+  &.hover {
+    scale: 0.95;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  }
+}

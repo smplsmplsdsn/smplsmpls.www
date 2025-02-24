@@ -1,0 +1,79 @@
+.service {
+
+  &__header {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    li {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 1 / 1;
+      margin: 0;
+      padding: 0;
+    }
+
+    &-1 {
+      background: #a9516e;
+    }
+
+    &-2 {
+      background: #0d1628;
+    }
+
+    &-3 {
+      background: #404358;
+    }
+  }
+
+  &__works {
+    padding: 60px 20px;
+    background:
+      repeating-linear-gradient(0deg, #f0f0f0 0px, #f0f0f0 1px, transparent 1px, transparent 15px),
+      repeating-linear-gradient(90deg, #f0f0f0 0px, #f0f0f0 1px, transparent 1px, transparent 15px);
+    background-size: 16px 16px;
+
+    &-inner {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    &-bg-1,
+    &-bg-2,
+    &-bg-3 {
+      box-shadow: 16px 16px 60px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    &-bg-1 {
+      width: 480px;
+      height: 360px;
+      background: #fff url(/assets/images/mv-bg1.jpg) center center no-repeat;
+      background-size: cover;
+    }
+
+    &-bg-2 {
+      width: 480px;
+      height: 360px;
+      background: #fff url(/assets/images/mv-bg2.jpg) center center no-repeat;
+      background-size: cover;
+    }
+
+    &-bg-3 {
+      width: 480px;
+      height: 360px;
+      background-color: #fff;
+      background-image: url(/assets/images/mv-bg3.png), url(/assets/images/mv-bg3-base.png);
+      background-position: right bottom, center center;
+      background-repeat: no-repeat, repeat;
+      background-size: cover, 150px 100px;
+      /*
+      background:
+  #fff url(/assets/images/mv-bg3.png) center center no-repeat,
+  url(/assets/images/mv-bg3-base.png) center center repeat;
+background-size: cover, 300px 200px;
+*/
+    }
+  }
+}

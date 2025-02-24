@@ -1,0 +1,38 @@
+@use "sass:list";
+@use "sass:math";
+@use 'sass:color';
+
+
+// base/reset.scss
+$max-width-form: 400px;
+$border-color-form: #ccc;
+$border-radius-form: 4px;
+
+// base/common.scss
+$color-default: #333132;
+$color-default-o: #fff;
+$color-link: #1558d6;
+$color-link-2: #171717;
+
+$color-caution: #d21d36;
+
+// setting/mixin_set-property.scss
+$breakpoint-default: 400px;
+
+// SNS color
+$twitter: #1DA1F2;
+$facebook: #3B5998;
+$youtube: #ff0000;
+$instagram: color.mix($facebook, $youtube);
+$instagram: linear-gradient(to bottom right, #5300c1, #c40094, #e80029);
+$line: #00b900;
+$github: #25292D;
+
+// ほか共通設定
+$border-radius: 10px;
+$border-radius-2: 4px;
+$color-btn-secondary: #000;
+
+
+// 個別設定
+$header-footer-breakpoint: 760px;
