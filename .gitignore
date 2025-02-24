@@ -1,0 +1,6 @@
+.DS_Store
+build/dist
+build/node_modules
+include/blog-list.html
+include/blog-nav.html
+**/blog-list-all.json
