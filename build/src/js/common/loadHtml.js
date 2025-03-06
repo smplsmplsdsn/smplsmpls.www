@@ -1,4 +1,5 @@
 cmn.loadHtml = async (url, post_data = {}) => {
+
   try {
     const response = await fetch(url, {
       method: 'POST',
@@ -15,7 +16,7 @@ cmn.loadHtml = async (url, post_data = {}) => {
 
     return await response.text()
   } catch (error) {
-    console.error("HTMLの取得に失敗:", error)
+    console.error("HTMLの取得に失敗:", error, url)
     return null   // エラー時は null を返す
   }
 }
