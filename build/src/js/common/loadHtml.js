@@ -1,22 +1,29 @@
-cmn.loadHtml = async (url, post_data = {}) => {
+cmn.loadHtml = async (url = '') => {
+
+  // ガード
+  if (url.trim() === '') {
+    return {
+      status: 'fail',
+      message: 'ファイル名が指定されていません'
+    }
+  }
 
   try {
     const response = await fetch(url, {
-      method: 'POST',
+      method: 'GET',
       headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'text/html'
-      },
-      body: JSON.stringify(post_data)
+        'X-CSRF-Token': CSRF_TOKEN
+      }
     })
 
     if (!response.ok) {
       throw new Error(`HTTPエラー: ${response.status}`)
     }
 
-    return await response.text()
+    const htmlData = await response.text()
+
+    return htmlData
   } catch (error) {
-    console.error("HTMLの取得に失敗:", error, url)
-    return null   // エラー時は null を返す
+    return ''
   }
 }

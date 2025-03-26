@@ -20,6 +20,9 @@ if (!isset($_SESSION['csrf_token'])) {
     <link rel="apple-touch-icon-precomposed" href="/assets/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="/assets/css/common.min.css?<?php echo filemtime('./assets/css/common.min.css'); ?>">
     <link rel="canonical" href="">
+
+    <link rel="stylesheet" href="/assets/highlight/styles/github-dark.min.css">
+    <script src="/assets/highlight/highlight.min.js"></script>
   </head>
   <body>
     <nav class="nav">

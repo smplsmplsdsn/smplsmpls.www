@@ -1,7 +1,7 @@
 const cmn = {},
       ssd = {}
 
-ssd.blog = []
+ssd.post = []
 
 // let INIT_PAGE = {},
 //     PAGES = []

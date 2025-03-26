@@ -1,70 +1,62 @@
 $(() => {
   const path = location.pathname
 
-  ssd.changePage({
-    path: path
-  })
-
   cmn.historySet((obj) => {
     ssd.changePage(obj)
   })
 
-  $('.js-link').on('click', function () {
-    const href = $(this).attr('href')
+  // ブログデータを取得する
+  Promise.all([
+    cmn.loadJson('businessquotes.json'),
+    cmn.loadJson('list-comment.json'),
+    cmn.loadJson('list-popular.json'),
+    cmn.loadJson('list.json'),
+    cmn.loadJson('category.json'),
+    cmn.loadHtml('/assets/include/post-nav.html')
+  ])
+  .then(results => {
+
+    // 名言データ
+    ssd.businessquotes = {}
+    ssd.businessquotes.data = results[0]
+    ssd.businessquotes.data = cmn.shuffleArray(ssd.businessquotes.data)
+
+    // 最近コメントありの投稿リスト、人気投稿リスト
+    ssd.list_comment = results[1]
+    ssd.list_popular = results[2]
+
+    // 投稿リスト
+    ssd.list = results[3]
+
+    // カテゴリデータ
+    ssd.category = {}
+    ssd.category.data = results[4]
+    ssd.category.html = results[5]
 
     ssd.changePage({
-      path: href
-    }, true)
-
-    return false
-  })
-
-  /*
-  const url = new URL(location.href),
-        paths = url.pathname + url.search
-
-  const params = cmn.getParam(location.href)
-
-  LOADING_PATHS = paths
-
-
-
-  // お問い合わせセッションを空にする
-  cmn.storageDelSS('.js-form-contact')
-
-  // 名言を取得してから、コンテンツをセットする
-  const init_load = async () => {
-    BUSINESS_QUOTES_ORIGINAL = await cmn.loadJson('/assets/ajax/parts/businessquotes.php')
-
-    if (BUSINESS_QUOTES_ORIGINAL) {
-      BUSINESS_QUOTES = structuredClone(BUSINESS_QUOTES_ORIGINAL)
-      BUSINESS_QUOTES = cmn.shuffleArray(BUSINESS_QUOTES)
-    }
-
-    BLOG_POSTS = await cmn.loadJson('/assets/js/blog-list-all.json')
-
-    if (!BLOG_POSTS) {
-      console.error('JSONファイルないよ: データのあるドメイン/api2/?class=blog-list&filename=create にアクセス')
-      return
-    }
-
-    CATEGORIES = await cmn.loadJson('/assets/js/category.json')
-
-    if (!CATEGORIES) {
-      console.error('JSONファイルないよ: データのあるドメイン/api2/?class=category&filename=create にアクセス')
-    }
-
-    await changePage({
-      paths: LOADING_PATHS,
-      blog_search: params.q || null
+      path: path
     })
 
-    const _menu = $('.js-menu')
+    // スプラッシュ削除
+    cmn.removeSplash()
+  })
+  .catch(error => {
+    ssd.changePage({
+      path: '/system/'
+    })
 
-    if (!_menu.hasClass('show')) {
-      _menu.addClass('hide')
-    }
-  }
-  init_load()
-  */
+    // スプラッシュ削除
+    cmn.removeSplash()
+  })
+})
+
+
+$(document).on('click', '.js-link', function () {
+  const href = $(this).attr('href')
+
+  ssd.changePage({
+    path: href
+  }, true)
+
+  return false
 })

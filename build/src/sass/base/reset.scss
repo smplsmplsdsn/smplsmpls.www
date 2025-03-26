@@ -18,13 +18,13 @@ body {
   word-wrap: break-word;
 }
 
-// pre iOSで自動改行される問題に対応する  
+// pre iOSで自動改行される問題に対応する
 pre {
   word-break: normal;
 }
 pre {
   word-wrap: normal;
-}  
+}
 
 main,
 article,
@@ -131,7 +131,7 @@ textarea {
   }
 
   &:focus{
-    outline: 0; 
+    outline: 0;
   }
 }
 
@@ -159,6 +159,7 @@ button {
 }
 
 textarea {
+  width: 100%;
   height: 200px;
   padding: 0.4em;
 
@@ -178,7 +179,7 @@ button {
   }
 }
 
-/* 
+/*
 フォーカス時にプレイスホルダーの文字列を非表示にするCSS　
 ただし、バーまで非表示になるので、この処理はNG
 JSで処理するのが適切のため、setPlacehoder.js を別途用意した
@@ -214,13 +215,13 @@ table{
  * http://paranishian.hateblo.jp/entry/css/mobileweb
  */
 body, a {
-  
+
   // リンク長押しのポップアップを無効化
   -webkit-touch-callout:none;
 }
 
 a {
-  
+
   // テキスト長押しの選択ボックスを無効化
   -webkit-user-select:none;
 }

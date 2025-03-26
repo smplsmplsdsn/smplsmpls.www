@@ -1,3 +1,0 @@
-ssd.getBlogData = (filename) => {
-
-}

@@ -26,6 +26,9 @@ ssd.changePage = async (obj = {}, is_history) => {
         response,
         html = ''
 
+    let is_error = false,
+        is_post = false
+
     switch (array_path[0]) {
       case '':
         title = ''
@@ -101,38 +104,56 @@ ssd.changePage = async (obj = {}, is_history) => {
       case 'video':
       case 'overview':
 
-        let blog_filename = ''
+        let post_filename = ''
 
         // 投稿記事の場合は、ファイル名をセットする
         if (array_path[0] === 'web' && array_path[3]) {
-          blog_filename = array_path[3]
+          post_filename = array_path[3]
         } else if (array_path[0] != 'web' && array_path[2]) {
-          blog_filename = array_path[2]
+          post_filename = array_path[2]
         }
 
         // 投稿記事かカテゴリか判別する
-        if (blog_filename) {
-          blog_filename = decodeURIComponent(blog_filename)
-          data = await ssd.getBlogData(blog_filename)
-          title = ''
-          description = ``
-          ogp_image = ``
-          html = data?.html || ''
+        if (post_filename) {
+          is_post = true
+          post_filename = decodeURIComponent(post_filename)
+          post_list = ssd.getPostListInfo(post_filename)
+
+          if (post_list) {
+            title = post_list.title
+            description = post_list.description
+            ogp_image = post_list.img
+            html = await ssd.getPostData(post_list.id)
+
+            if (html && html != '') {
+              data = {
+                id: post_list.id,
+                html: html
+              }
+            } else {
+              is_error = true
+            }
+          } else {
+            is_error = true
+          }
         } else {
           title = ''
           description = ``
           ogp_image = ``
           response = await fetch(`/assets/include/pages/${array_path[0]}.php`)
           html = await response.text()
-
         }
         break
 
       default:
-        title = `表示できませんでした | ${title}`
-        description = ``
-        response = await fetch(`/assets/include/pages/system.php`)
-        html = await response.text()
+        is_error = true
+    }
+
+    if (is_error) {
+      title = `表示できませんでした | ${title}`
+      description = ``
+      response = await fetch(`/assets/include/pages/system.php`)
+      html = await response.text()
     }
 
     $('title').html(title)
@@ -147,6 +168,11 @@ ssd.changePage = async (obj = {}, is_history) => {
       top: 0,
       opacity: 1
     }, 350)
+
+    // 投稿記事の場合
+    if (is_post) {
+      hljs.highlightAll()
+    }
 
     // ヒストリー追加
     if (is_history && obj.path != ssd.last_history) {
