@@ -1,6 +1,7 @@
 .DS_Store
+*-bk.*
+*-bk/
 build/dist
 build/node_modules
-include/blog-list.html
-include/blog-nav.html
-**/blog-list-all.json
+public/assets/include/post-nav.html
+public/**/*.json

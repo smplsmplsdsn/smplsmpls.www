@@ -25,10 +25,15 @@ cmn.historyPushState = (state, title, url) => {
  *
  * @param {function} func ブラウザの前へ次へをクリックした際の処理
  */
-const historySet = (func) => {
+cmn.historySet = (func) => {
   if (IS_HISTORY_API) {
     $(window).on('popstate', function (event) {
-      if (func && IS_HISTORY_PUSH) func(event.originalEvent.state)
+      // originalEvent と state の確認
+      const state = event.originalEvent?.state || null
+
+      if (func) {
+        func(state)
+      }
     })
   }
 }

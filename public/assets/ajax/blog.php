@@ -8,7 +8,7 @@ foreach (glob(__DIR__ . '/../../../functions/{*.php}', GLOB_BRACE) as $file) {
 header('Content-Type: text/html; charset=UTF-8');
 $data = json_decode(file_get_contents('php://input'), true);
 
-$is_index = (isset($_GET['paths']) && $_GET['paths'] === 'blog');
+$is_index = (isset($_GET['paths']) && $_GET['paths'] === 'post');
 $is_query = isset($data['q']);
 
 if ($is_query) {
@@ -50,7 +50,7 @@ function prevnext_unit ($data) {
     <?php else: ?>
       $('.js-form-blog-search').removeClass('blog-header__search--index')
       $('.js-blog-hgroup').removeClass('show')
-      $('.js-blog-topicpath').html(`<a href="/">ホーム</a><a href="/blog/">制作ブログ</a><?php echo $data['topicpath']; ?>`)
+      $('.js-blog-topicpath').html(`<a href="/">ホーム</a><a href="/post/">制作ブログ</a><?php echo $data['topicpath']; ?>`)
     <?php endif; ?>
   </script>
   <?php if (isset($data) && isset($data['type'])): ?>

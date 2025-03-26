@@ -60,8 +60,6 @@ $(() => {
           </li>
         `
 
-        console.log(_comment_list.length)
-
         if (_comment_list.length > 0) {
           if ($('li', _comment_list).length > 0) {
             $('li:first-child', _comment_list).before(comment_html)

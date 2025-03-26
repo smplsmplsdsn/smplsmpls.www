@@ -1,21 +1,24 @@
-const cmn = {}
+const cmn = {},
+      ssd = {}
 
-let INIT_PAGE = {},
-    PAGES = []
+ssd.blog = []
 
-let LOADING_PATHS = '',
-    BLOG_COUNT_POSTS = 0
+// let INIT_PAGE = {},
+//     PAGES = []
 
-let BUSINESS_QUOTES_ORIGINAL = [],
-    BUSINESS_QUOTES = [],
-    BUSINESS_QUOTES_NUM = 0
+// let LOADING_PATHS = '',
+//     BLOG_COUNT_POSTS = 0
 
-let BLOG_POSTS = []
+// let BUSINESS_QUOTES_ORIGINAL = [],
+//     BUSINESS_QUOTES = [],
+//     BUSINESS_QUOTES_NUM = 0
 
-let CATEGORIES = [],
-    CATEGORY = {}
+// let BLOG_POSTS = []
 
-let SEARCH_HIT_COUNT = 0
-    SEARCH_HIT_TEXT = '',
-    CATEGORY_HIT_COUNT = 0
+// let CATEGORIES = [],
+//     CATEGORY = {}
+
+// let SEARCH_HIT_COUNT = 0
+//     SEARCH_HIT_TEXT = '',
+//     CATEGORY_HIT_COUNT = 0
 

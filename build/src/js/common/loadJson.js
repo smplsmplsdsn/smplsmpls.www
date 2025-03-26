@@ -1,15 +1,34 @@
-cmn.loadJson = async (url) => {
+cmn.loadJson = async (filename = '') => {
+
+  // ガード
+  if (filename.trim() === '') {
+    return {
+      status: 'fail',
+      message: 'ファイル名が指定されていません'
+    }
+  }
+
   try {
-    const response = await fetch(url)
+    const response = await fetch('/api/index.php', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-CSRF-Token': CSRF_TOKEN
+      },
+      body: JSON.stringify({
+        filename: filename
+      }),
+    })
 
     if (!response.ok) {
       throw new Error(`HTTPエラー: ${response.status}`)
     }
 
-    return await response.json() // JSONを返却
+    return await response.json()
   } catch (error) {
-    console.error("JSONの取得に失敗:", error)
-    return null // エラー時は null を返す
+    return {
+      status: 'fail',
+      message: error.message || '不明なエラーが発生しました'
+    }
   }
 }
-

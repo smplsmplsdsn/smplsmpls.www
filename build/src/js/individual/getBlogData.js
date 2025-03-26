@@ -1,0 +1,3 @@
+ssd.getBlogData = (filename) => {
+
+}

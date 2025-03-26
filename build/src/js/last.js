@@ -1,6 +1,25 @@
-
-
 $(() => {
+  const path = location.pathname
+
+  ssd.changePage({
+    path: path
+  })
+
+  cmn.historySet((obj) => {
+    ssd.changePage(obj)
+  })
+
+  $('.js-link').on('click', function () {
+    const href = $(this).attr('href')
+
+    ssd.changePage({
+      path: href
+    }, true)
+
+    return false
+  })
+
+  /*
   const url = new URL(location.href),
         paths = url.pathname + url.search
 
@@ -8,10 +27,7 @@ $(() => {
 
   LOADING_PATHS = paths
 
-  historySet((obj) => {
-    LOADING_PATHS = obj.paths
-    changePage(obj)
-  })
+
 
   // お問い合わせセッションを空にする
   cmn.storageDelSS('.js-form-contact')
@@ -50,4 +66,5 @@ $(() => {
     }
   }
   init_load()
+  */
 })
