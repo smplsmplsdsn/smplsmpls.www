@@ -39,21 +39,43 @@ if (!isset($_SESSION['csrf_token'])) {
     <script src="/assets/highlight/highlight.min.js"></script>
   </head>
   <body>
-    <nav class="nav">
-      <p><a class="js-link" href="/">ホーム</a></p>
-      <ul>
-        <li><a class="js-link" href="/post/">制作ブログ</a></li>
-        <li><a class="js-link" href="/service/">サービス</a></li>
-        <li><a class="js-link" href="/about/">事業について</a></li>
-        <li><a class="js-link" href="/contact/">お問い合わせ</a></li>
-      </ul>
-    </nav>
+    <div class="js-splash splash" style="position:fixed;top:0;left:0;right:0;bottom:0;z-index:99999;display:flex;justify-content:center;align-items:center;background:#fff;">splash TODO</div>
+
+    <div class="mainvisual">
+      <div class="mainvisual__content">
+        <div class="mainvisual__content-inner">
+          <h1 class="mainvisual__title">
+            ロゴ
+          </h1>
+          <p>シンプルシンプルデザインは、おかげさまで2025年2月で10周年を迎えることができました。これもみなさんのおかげです。ありがとうございます。今後ともどうぞよろしくお願いいたします。</p>
+          <ul class="mainvisual__lists">
+            <li><a class="js-link" href="/post/">制作ブログ</a></li>
+            <li><a class="js-link" href="/service/">サービス</a></li>
+            <li><a class="js-link" href="/about/">事業について</a></li>
+            <li><a class="js-link" href="/contact/">お問い合わせ</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="mainvisual__visual"></div>
+    </div>
+
+    <header class="header js-header">
+      <nav class="nav">
+        <p><a class="js-link" href="/">ホーム</a></p>
+        <ul>
+          <li><a class="js-link" href="/post/">制作ブログ</a></li>
+          <li><a class="js-link" href="/service/">サービス</a></li>
+          <li><a class="js-link" href="/about/">事業について</a></li>
+          <li><a class="js-link" href="/contact/">お問い合わせ</a></li>
+        </ul>
+      </nav>
+    </header>
+
 
     <article class="article js-article">
       <div class="article__inner js-article-inner"></div>
       <div class="loading js-loading">loading...</div>
     </article>
-
 
     <section class="post-list">
       <h2 class="post-list__title">制作ブログ</h2>
@@ -88,6 +110,30 @@ if (!isset($_SESSION['csrf_token'])) {
         </div>
       </section>
     </section>
+
+    <div class="post-nav">
+      <div class="post-nav__inner">
+        <?php include_once(__DIR__ . '/assets/include/post-nav.html'); ?>
+      </div>
+    </div>
+
+    <footer class="footer">
+
+      <p>
+        <a class="js-link" href="/">ホーム</a>
+      </p>
+      <ul class="mainvisual__lists">
+        <li><a class="js-link" href="/post/">制作ブログ</a></li>
+        <li><a class="js-link" href="/service/">サービス</a></li>
+        <li><a class="js-link" href="/about/">事業について</a></li>
+        <li><a class="js-link" href="/contact/">お問い合わせ</a></li>
+      </ul>
+      <div>
+        <a class="js-link" href="/privacy/">プライバシーポリシー</a>
+      </div>
+
+      <small class="footer__copyright">SINCE 2015 &copy; シンプルシンプルデザイン</small>
+    </footer>
 
     <script src="/assets/js/jquery-3.7.1.min.js"></script>
     <script>

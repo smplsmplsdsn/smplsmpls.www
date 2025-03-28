@@ -44,16 +44,13 @@ $(() => {
     ssd.category.data = results[4]
     ssd.category.html = results[5]
 
-    // 投稿15記事セット
-    ssd.setPostLists15()
-
     // 画面セット
     ssd.changePage({
       path: path
     })
 
-    // スプラッシュ削除
-    cmn.removeSplash()
+    // 投稿15記事セット
+    ssd.setPostLists15()
   })
   .catch(error => {
 

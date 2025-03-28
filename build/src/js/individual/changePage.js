@@ -169,6 +169,9 @@ ssd.changePage = async (obj = {}, is_history) => {
     $('meta[property="og:image"]').attr('content', ogp_image)
     $('link[rel="canonical"]').attr('href', canonical)
 
+    $('body').attr('data-page', array_path[0] || 'home')
+
+
     // コンテンツを表示する
     _loading.hide()
     _article_inner.html(html)
@@ -200,6 +203,12 @@ ssd.changePage = async (obj = {}, is_history) => {
       }
 
       cmn.historyPushState(history_obj, '', obj.path)
+    }
+
+    // スプラッシュ削除（TODO タイムラグの処理）
+    if (!ssd.is_delete_splash) {
+      ssd.is_delete_splash = true
+      cmn.removeSplash()
     }
   })
 }

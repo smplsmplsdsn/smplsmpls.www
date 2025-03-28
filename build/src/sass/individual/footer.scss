@@ -1,0 +1,14 @@
+.footer {
+  padding: 20px;
+  background: #f2f2f2;
+  color: #6e6e6e;
+
+  &__copyright {
+    display: block;
+    padding: 20px 0 0;
+    text-align: center;
+    font-weight: normal;
+    font-size: 13px;
+    color: #eee;
+  }
+}
