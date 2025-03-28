@@ -7,7 +7,10 @@ $(() => {
           _this = _submit_btn.closest('.js-form-comment'),
           _comment = $('[name="comment"]', _this),
           _nickname = $('[name="author"]', _this),
-          _notification = $('.js-comment-notification', _this)
+          _notification = $('.js-comment-notification', _this),
+          _inner = $('.js-comment-inner')
+
+    let _list = $('.js-comment-list')
 
     const post_id = $('[name="comment_post_ID"]', _this).val()
 
@@ -28,9 +31,8 @@ $(() => {
 
       is_sending = true
       _submit_btn.html('<span class="animation-blinker">送信中...</span>')
-      $('.js-comment-list').attr('data-id', post_id)
 
-      const response = await fetch('/assets/ajax/parts/post-comment-form.php', {
+      const response = await fetch('/assets/ajax/post-comment.php', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -49,33 +51,39 @@ $(() => {
         let nickname = cmn.getNrToBr(_nickname.val().trim().replace(/</g, '＜').replace(/>/g, '＞'))
 
         // コメント即時反映
-        let _comment_list = $('.js-comment-list[data-id="' + post_id + '"]')
         let comment_html = `
-          <li class="comment__unit">
-            <p class="comment__unit-text">${comment}</p>
-            <p class="comment__unit-info">
-              <span>${nickname}</span>
-              <time>now</time>
-            </p>
-          </li>
+          <div class="post-comment__unit">
+            <div class="post-comment__unit-inner">
+              ${comment}
+              <div class="post-comment__unit-info">
+                <span class="post-comment__unit-name">${nickname || '(匿名)'}</span>
+                <time class="post-comment__unit-time">now</time>
+              </div>
+            </div>
+          </div>
         `
 
-        if (_comment_list.length > 0) {
-          if ($('li', _comment_list).length > 0) {
-            $('li:first-child', _comment_list).before(comment_html)
-          } else {
-            _comment_list.append(comment_html)
-          }
+        if (_list.length === 0) {
+          _inner.append(`<div class="post-comment__list js-comment-list"></div>`)
+          _list = $('.js-comment-list')
+        }
+
+        if ($('.post-comment__unit', _list).length > 0) {
+          $('.post-comment__unit:first-child', _list).before(comment_html)
+        } else {
+          _list.append(comment_html)
         }
 
         // コメントリセット
         _comment.val('')
         _nickname.val('')
 
-
-        // PAGESから削除
-        PAGES = PAGES.filter(page => page.data.id !== post_id)
+        // ローカルデータから削除する
+        // TODO
+        console.log(ssd.post)
       } else {
+
+        console.log(result)
         _notification.addClass('caution').html('コメント送信できませんでした。恐れ入りますが、もう一度お試しください。').show()
       }
 

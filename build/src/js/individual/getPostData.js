@@ -3,10 +3,7 @@ ssd.getPostData = async (post_id) => {
 
   let post_data = ssd.post.find(item => item.id == post_id)
 
-  if (post_data) {
-    return 'aruyo TODO'
-
-  } else {
+  if (!post_data) {
     post_data = await ssd.loadPost(post_id)
 
     // ガード
@@ -17,10 +14,7 @@ ssd.getPostData = async (post_id) => {
     ssd.post.push(post_data)
   }
 
-  console.log(post_data)
-
-  const image = (post_data?.image)? `<figure class="post__mainvisual mainvisual" style="background-image: url(${post_data.image});"></figure>` : ``
-
+  const image = (post_data?.image)? `<figure class="post__mainvisual" style="background-image: url(${post_data.image});"></figure>` : ``
 
   let update = post_data?.acf?.update || ``
 
@@ -30,7 +24,7 @@ ssd.getPostData = async (post_id) => {
     update = `(${update_array[0]}年${update_array[1]}月${update_array[2]}日更新)`
   }
 
-  const page_url = encodeURIComponent(`htttps://simplesimples.com${post_data.link}`),
+  const page_url = encodeURIComponent(`https://simplesimples.com${post_data.link}`),
         page_title = encodeURIComponent(post_data.title),
         site_name = encodeURIComponent('【シンプルシンプルデザイン】')
 
@@ -47,6 +41,33 @@ ssd.getPostData = async (post_id) => {
   <li><a href="${link_sns_line}"><span class="icon-line"></span></a></li>
 </ul>
   `
+
+  const html_comment_first = (post_data.comments.length === 0)? '<p class="post-comment__none js-comment-none">この記事の最初のコメントを書いてくれると嬉しいです！</p>': ''
+
+  let html_comments = ''
+
+  for (const comment of post_data.comments) {
+    let { author, content, date } = comment
+
+    author = author.trim() || '(匿名)'
+    content = content.replace(/</g, '＜').replace(/>/g, '＞')
+    content = content.replace(/&lt;/g, '＜').replace(/&gt;/g, '＞')
+    content = cmn.getNrToBr(content)
+
+    html_comments += `
+<div class="post-comment__unit">
+  <div class="post-comment__unit-inner">
+    ${content}
+    <div class="post-comment__unit-info">
+      <span class="post-comment__unit-name">${author}</span>
+      <time class="post-comment__unit-time">${date}</time>
+    </div>
+  </div>
+</div>
+    `
+  }
+
+  html_comments = (post_data.comments.length === 0)? `` : `<div class="post-comment__list js-comment-list">${html_comments}</div>`
 
   html = `
 <main class="post js-post">
@@ -66,34 +87,31 @@ ssd.getPostData = async (post_id) => {
 
   ${html_sns}
 
-  <div class="content post__content js-post-content">
-    ${post_data.content }
+  <div class="post-content post__content js-post-content">
+    ${post_data.content}
   </div>
 
   ${html_sns}
 
   <div class="post__comment">
-    <aside class="comment js-comment">
-      <div class="comment__inner">
-        <h1 class="comment__title">COMMENT</h1>
-        <p class="comment__description js-comment__description">最後まで目を通していただき、ありがとうございます。この記事はいかがでしたか？</p>
-        <div class="comment__form-outer">
-          <form id="commentform" class="comment__form js-form-comment" method="post">
+    <aside class="post-comment js-comment">
+      <div class="post-comment__inner js-comment-inner">
+        <h1 class="post-comment__title">COMMENT</h1>
+        <p class="post-comment__description js-post-comment__description">最後まで目を通していただき、ありがとうございます。この記事はいかがでしたか？</p>
+        ${html_comment_first}
+        <div class="post-comment__form-outer">
+          <form id="commentform" class="post-comment__form js-form-comment" method="post" onsubmit="return false;">
             <textarea name="comment"></textarea>
-            <div class="comment__info">
-              <input class="comment__name" name="author" type="text" value="" placeholder="ニックネーム">
-              <input class="comment__submit js-comment-submit" name="submit" type="submit" value="コメントする">
+            <p class="post-comment__message js-comment-notification"><strong>コメント送信できませんでした。恐れ入りますが、コメントが入力されていることをご確認の上、もう一度「コメント送信」を選択してください。</strong></p>
+            <div class="post-comment__info">
+              <input class="post-comment__name" name="author" type="text" value="" placeholder="ニックネーム">
+              <button class="post-comment__submit js-comment-submit" type="button">コメントする</button>
             </div>
             <input type="hidden" name="comment_post_ID" value="${post_data.id}">
             <input type="hidden" name="comment_parent" value="0" />
-            <p class="comment__message js-comment-message"><strong>コメント送信できませんでした。恐れ入りますが、コメントが入力されていることをご確認の上、もう一度「コメント送信」を選択してください。</strong></p>
           </form>
         </div>
-
-        <div class="comment__list">
-
-
-        </div>
+        ${html_comments}
       </div>
     </aside>
   </div>
@@ -102,45 +120,3 @@ ssd.getPostData = async (post_id) => {
 
   return html
 }
-
-
-          // <?php
-          // $comments = get_comments('post_id='.get_the_id().'&status=approve&type=comment&orderby=comment_date&order=ASC');
-
-          // function check_author($author_name, $author_email = '') {
-          //   if ("" === $author_name) {
-          //     $author_name = "(匿名)";
-          //   }
-          //   if ("simplesimplesdesign@gmail.com" === $author_email) {
-          //     $author_name = "たけたけ";
-          //   }
-          //   return enc($author_name);
-          // }
-
-          // function view_comment($comments) {
-          //   $t = '';
-          //   if (count($comments) > 0) {
-          //     foreach ( $comments as $comment ) {
-          //       $t .= '<div class="comment__unit-outer" id="comment-'.$comment -> comment_ID.'">';
-          //       $t .= '<div class="comment__unit">';
-          //       $comment_text = $comment -> comment_content;
-          //       $comment_text = preg_replace('/&lt;/', '＜', $comment_text);
-          //       $comment_text = preg_replace('/&gt;/', '＞', $comment_text);
-          //       $t .= replace_br(enc($comment_text));
-          //       $t .= '<div class="comment__unit-info">';
-          //       $t .= '<span class="comment__unit-name">';
-          //       $t .= check_author($comment -> comment_author, $comment -> comment_author_email);
-          //       $t .= '</span>';
-          //       $t .= '<time class="comment__unit-time" datetime="'.date("Y-m-d\TH:i", strtotime($comment -> comment_date)).'">';
-          //       $t .= date("Y年m月d日 H:i", strtotime($comment -> comment_date));
-          //       $t .= '</time>';
-          //       $t .= "</div>";
-          //       $t .= "</div>";
-          //       $t .= "</div>";
-          //     }
-          //   } else {
-          //     $t .= '<p class="comment__none js-comment-none">この記事の最初のコメントを書いてくれると嬉しいです！</p>';
-          //   }
-          //   return $t;
-          // }
-          // echo view_comment($comments);

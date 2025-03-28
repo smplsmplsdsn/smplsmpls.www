@@ -4,6 +4,10 @@ ssd.changePage = async (obj = {}, is_history) => {
         _loading = $('.js-loading')
 
   // コンテンツを非表示にする
+  _article.css({
+    'min-height': _article.height()
+  })
+
   _article.animate({
     top: -10,
     opacity: 0
@@ -28,6 +32,8 @@ ssd.changePage = async (obj = {}, is_history) => {
 
     let is_error = false,
         is_post = false
+
+
 
     switch (array_path[0]) {
       case '':
@@ -113,6 +119,8 @@ ssd.changePage = async (obj = {}, is_history) => {
           post_filename = array_path[2]
         }
 
+
+
         // 投稿記事かカテゴリか判別する
         if (post_filename) {
           is_post = true
@@ -164,6 +172,13 @@ ssd.changePage = async (obj = {}, is_history) => {
     // コンテンツを表示する
     _loading.hide()
     _article_inner.html(html)
+
+    _article.css({
+      'min-height': 'unset'
+    })
+
+    $(window).scrollTop(0)
+
     _article.animate({
       top: 0,
       opacity: 1

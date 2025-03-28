@@ -1,4 +1,4 @@
-.content {
+.post-content {
   line-height: 2.2;
 
   @media (max-width: 1000px) {
@@ -50,7 +50,7 @@
   > ul,
   > ol,
   > dl {
-    font-size: 17px;
+    font-size: 16px;
     font-feature-settings: "palt";
   }
 
@@ -181,7 +181,7 @@
     }
 
     p {
-      font-size: 17px;
+      font-size: 16px;
       font-feature-settings: "palt";
     }
   }

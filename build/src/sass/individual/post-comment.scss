@@ -1,6 +1,6 @@
 $color-alert: #c00;
 
-.comment {
+.post-comment {
 	font-size: 13px;
   line-height: 1.5;
 
@@ -80,14 +80,14 @@ $color-alert: #c00;
 		border-top: 1px dashed #ccc;
 	}
 
-	&__unit-outer {
+	&__unit {
 		padding: 1rem 0 0;
 		&:first-child {
 		padding: 0;
 		}
 	}
 
-	&__unit {
+	&__unit-inner {
 		margin: 0;
 		padding: 1rem;
 		border: 1px solid #fafafa;
@@ -120,21 +120,12 @@ $color-alert: #c00;
 	&__message {
 		display: none;
 		margin: 1rem 0 0;
+		color: #8BB15F;
 		font-weight: bold;
+		text-align: right;
 
-		&--alert {
+		&.caution {
 			color: $color-alert;
-		}
-
-		&--success {
-			color: #8BB15F;
-			text-align: center;
-			font-weight: bold;
-			font-size: 15px;
-
-			@media (min-width: 400px) {
-				text-align: right;
-			}
 		}
 	}
 }

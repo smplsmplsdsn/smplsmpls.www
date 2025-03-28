@@ -1,4 +1,18 @@
 <?php
+// data
+// s8yH yt77 8kNg l2Q1 Z3pY kLn3
+// echo -n "takenori:s8yH yt77 8kNg l2Q1 Z3pY kLn3" | base64
+// dGFrZW5vcmk6czh5SCB5dDc3IDhrTmcgbDJRMSBaM3BZIGtMbjM=
+//
+// 'Authorization': 'Basic dGFrZW5vcmk6czh5SCB5dDc3IDhrTmcgbDJRMSBaM3BZIGtMbjM='
+//
+// www
+// vINO K18p fUr5 s1t7 TSAA M66g
+// echo -n "takenori:vINO K18p fUr5 s1t7 TSAA M66g" | base64
+// dGFrZW5vcmk6dklOTyBLMThwIGZVcjUgczF0NyBUU0FBIE02Nmc=
+//
+// 'Authorization': 'Basic dGFrZW5vcmk6dklOTyBLMThwIGZVcjUgczF0NyBUU0FBIE02Nmc='
+//
 session_start();
 
 if (!isset($_SESSION['csrf_token'])) {
@@ -39,6 +53,41 @@ if (!isset($_SESSION['csrf_token'])) {
       <div class="article__inner js-article-inner"></div>
       <div class="loading js-loading">loading...</div>
     </article>
+
+
+    <section class="post-list">
+      <h2 class="post-list__title">制作ブログ</h2>
+      <section class="post-list__section">
+        <h3 class="post-list__section-title">最近の15記事</h3>
+        <div class="scroll js-scroll-post-recenlty">
+          <div class="scroll__outer">
+            <div class="scroll__inner">
+              <div class="scroll__content js-post-recenlty-lists post-list-units"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="post-list__section">
+        <h3 class="post-list__section-title">よく読まれている15記事</h3>
+        <div class="scroll js-scroll-post-popular">
+          <div class="scroll__outer">
+            <div class="scroll__inner">
+              <div class="scroll__content js-post-popular-lists post-list-units"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="post-list__section">
+        <h3 class="post-list__section-title">最近コメントありの15記事</h3>
+        <div class="scroll js-scroll-post-comment">
+          <div class="scroll__outer">
+            <div class="scroll__inner">
+              <div class="scroll__content js-post-comment-lists post-list-units"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
 
     <script src="/assets/js/jquery-3.7.1.min.js"></script>
     <script>

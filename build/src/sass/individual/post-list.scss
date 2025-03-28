@@ -1,0 +1,23 @@
+.post-list {
+  max-width: 1600px;
+  margin: auto;
+  padding: 100px 0;
+
+  @include sp {
+    padding: 50px 0;
+  }
+
+  &__title {
+    margin: 0 0 20px;
+    text-align: center;
+    font-size: 28px;
+  }
+
+  &__section:not(:first-of-type)  {
+    margin: 20px 0 0;
+  }
+
+  &__section-title {
+    padding: 20px;
+  }
+}

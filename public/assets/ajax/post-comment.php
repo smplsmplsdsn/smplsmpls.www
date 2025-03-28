@@ -13,24 +13,25 @@ $data = json_decode(file_get_contents("php://input"), true);
 
 if (!empty($data['comment'])) {
 
-  $target_url = "https://data.simplesimples.com/wp-comments-post.php";
+  $target_url = "https://data.simplesimples.com/wp-json/wp/v2/comments";
   $ch = curl_init($target_url);
 
   // データをURLエンコード形式に変換
   $post_data = [
-    'comment_post_ID' => $data['comment_post_ID'],
-    'comment' => $data['comment'],
-    'author' => $data['author'] ?? '',
-    'email' => $data['email'] ?? '',
-    'url' => $data['url'] ?? '',
-    'comment_parent' => $data['comment_parent'] ?? 0
+    'post' => $data['comment_post_ID'],
+    'content' => $data['comment'],
+    'author_name' => $data['author'] ?? '',
+    'author_email' => $data['email'] ?? '',
+    'author_url' => $data['url'] ?? '',
+    'parent' => $data['comment_parent'] ?? 0
   ];
 
+  // cURL オプション設定
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
   curl_setopt($ch, CURLOPT_POST, true);
-  curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($post_data)); // URLエンコード形式に変換
+  curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($post_data)); // JSON 形式に変更
   curl_setopt($ch, CURLOPT_HTTPHEADER, [
-    'Content-Type: application/x-www-form-urlencoded' // フォーム形式を指定
+    'Content-Type: application/json' // JSON を指定
   ]);
 
   $response = curl_exec($ch);

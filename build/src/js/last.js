@@ -2,15 +2,22 @@ $(() => {
   const path = location.pathname
 
   cmn.historySet((obj) => {
-    ssd.changePage(obj)
+
+    if (obj) {
+      ssd.changePage(obj)
+    } else {
+      ssd.changePage({
+        path: path
+      })
+    }
   })
 
   // ブログデータを取得する
   Promise.all([
     cmn.loadJson('businessquotes.json'),
-    cmn.loadJson('list-comment.json'),
-    cmn.loadJson('list-popular.json'),
     cmn.loadJson('list.json'),
+    cmn.loadJson('list-popular.json'),
+    cmn.loadJson('list-comment.json'),
     cmn.loadJson('category.json'),
     cmn.loadHtml('/assets/include/post-nav.html')
   ])
@@ -21,18 +28,26 @@ $(() => {
     ssd.businessquotes.data = results[0]
     ssd.businessquotes.data = cmn.shuffleArray(ssd.businessquotes.data)
 
-    // 最近コメントありの投稿リスト、人気投稿リスト
-    ssd.list_comment = results[1]
-    ssd.list_popular = results[2]
-
     // 投稿リスト
-    ssd.list = results[3]
+    ssd.list = results[1]
+
+    // 人気投稿リスト
+    ssd.list_popular = results[2]?.ids.split(',').map(item => Number(item))
+    ssd.list_popular = ssd.list.filter(item => ssd.list_popular.includes(item.id))
+
+    // 最近コメントありの投稿リスト
+    ssd.list_comment = results[3]?.ids.split(',').map(item => Number(item))
+    ssd.list_comment = ssd.list.filter(item => ssd.list_comment.includes(item.id))
 
     // カテゴリデータ
     ssd.category = {}
     ssd.category.data = results[4]
     ssd.category.html = results[5]
 
+    // 投稿15記事セット
+    ssd.setPostLists15()
+
+    // 画面セット
     ssd.changePage({
       path: path
     })
@@ -41,6 +56,9 @@ $(() => {
     cmn.removeSplash()
   })
   .catch(error => {
+
+    console.error('Ohh, somthing happens...', error)
+
     ssd.changePage({
       path: '/system/'
     })
