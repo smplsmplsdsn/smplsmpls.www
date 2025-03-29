@@ -112,9 +112,7 @@ if (!isset($_SESSION['csrf_token'])) {
     </section>
 
     <div class="post-nav">
-      <div class="post-nav__inner">
-        <?php include_once(__DIR__ . '/assets/include/post-nav.html'); ?>
-      </div>
+      <div class="post-nav__inner js-post-nav"></div>
     </div>
 
     <footer class="footer">

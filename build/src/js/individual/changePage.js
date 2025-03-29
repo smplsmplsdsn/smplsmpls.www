@@ -34,7 +34,6 @@ ssd.changePage = async (obj = {}, is_history) => {
         is_post = false
 
 
-
     switch (array_path[0]) {
       case '':
         title = ''
@@ -109,7 +108,6 @@ ssd.changePage = async (obj = {}, is_history) => {
       case 'web':
       case 'video':
       case 'overview':
-
         let post_filename = ''
 
         // 投稿記事の場合は、ファイル名をセットする
@@ -118,8 +116,6 @@ ssd.changePage = async (obj = {}, is_history) => {
         } else if (array_path[0] != 'web' && array_path[2]) {
           post_filename = array_path[2]
         }
-
-
 
         // 投稿記事かカテゴリか判別する
         if (post_filename) {
@@ -148,8 +144,7 @@ ssd.changePage = async (obj = {}, is_history) => {
           title = ''
           description = ``
           ogp_image = ``
-          response = await fetch(`/assets/include/pages/${array_path[0]}.php`)
-          html = await response.text()
+          html = ssd.setPostCategory(array_path[array_path.length - 1])
         }
         break
 

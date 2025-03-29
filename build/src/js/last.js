@@ -40,14 +40,15 @@ $(() => {
     ssd.list_comment = ssd.list.filter(item => ssd.list_comment.includes(item.id))
 
     // カテゴリデータ
-    ssd.category = {}
-    ssd.category.data = results[4]
-    ssd.category.html = results[5]
+    ssd.category = results[4]
 
     // 画面セット
     ssd.changePage({
       path: path
     })
+
+    // 投稿カテゴリをセット
+    $('.js-post-nav').html(results[5])
 
     // 投稿15記事セット
     ssd.setPostLists15()
