@@ -1,0 +1,7 @@
+.service {
+  height: 100px;
+  background:
+    repeating-linear-gradient(0deg, #f0f0f0 0px, #f0f0f0 1px, transparent 1px, transparent 15px),
+    repeating-linear-gradient(90deg, #f0f0f0 0px, #f0f0f0 1px, transparent 1px, transparent 15px);
+  background-size: 12px 12px;
+}

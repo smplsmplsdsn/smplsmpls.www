@@ -1,0 +1,242 @@
+.about {
+  &__inner {
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    max-width: 1400px;
+    min-height: calc(100vh - 150px);
+
+    @media (max-width:$header-footer-breakpoint) {
+      min-height: calc(100vh - 80px);
+    }
+  }
+
+  &__headline {
+    margin: 0 0 0 auto;
+    padding: 20px 20px 60px;
+    font-family: "ヒラギノ明朝 Pro W3","Hiragino Mincho Pro","ＭＳ Ｐ明朝","MS PMincho",serif;
+    font-size: clamp(38px, 6vw, 60px);
+    font-weight: normal;
+    line-height: 1.5;
+    writing-mode: vertical-rl;
+    white-space: nowrap;
+  }
+
+  &__statement {
+    padding: 100px 0 100px;
+    background: url(/assets/images/bg-about-statement.png) center bottom no-repeat;
+    background-size: auto 100px;
+  }
+
+  &__title {
+    position: relative;
+    z-index: 1;
+    width: calc(50vw + 158px);
+    min-width: 718px;
+    text-align: right;
+    font-family: "ヒラギノ明朝 Pro W3","Hiragino Mincho Pro","ＭＳ Ｐ明朝","MS PMincho",serif;
+    font-size: 32px;
+
+    .about__section:nth-child(2n) & {
+      margin: 0 0 0 auto;
+      text-align: left;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      z-index: 2;
+      display: block;
+      width: 100%;
+      height: 6px;
+      margin-top: -3px;
+      background-image: linear-gradient(-45deg, #eee 0%, #eee 25%, transparent 25%, transparent 50%, #eee 50%, #eee 75%, transparent 75%, transparent 100%);
+      background-repeat: repeat;
+      background-size: 10px 10px;
+    }
+
+    @include sp {
+      width: unset;
+      min-width: unset;
+    }
+
+    span {
+      position: relative;
+      z-index: 3;
+      padding: 0 20px;
+      background: #fff;
+    }
+  }
+
+  &__content {
+    width: 718px;
+    padding: 40px 40px 100px;
+    box-sizing: border-box;
+    line-height: 2;
+    font-size: 17px;
+
+    @include sp {
+      width: unset;
+    }
+
+    .about__section:nth-child(2n) & {
+      margin: 0 0 0 auto;
+    }
+
+    > *:not(:first-child) {
+      margin: 20px 0 0;
+    }
+  }
+
+  &__description {
+    padding: 0 0 20px;
+    background: url(/assets/images/bg-about-description.png) top left repeat;
+    background-size: 600px 400px;
+  }
+
+  &__profile {
+    width: fit-content;
+    margin: auto;
+    padding: 40px 20px;
+
+    &-title {
+      margin: 0 0 20px;
+      font-size: 24px;
+      text-align: center;
+      letter-spacing: 0.5em;
+    }
+
+    &-table {
+      border: none;
+      line-height: 1.5;
+
+      th,
+      td {
+        padding: 16px 10px;
+        border: none;
+      }
+
+      th {
+        border-bottom: 2px solid #333;
+        white-space: nowrap;
+      }
+
+      td {
+        border-bottom: 2px solid #ccc;
+      }
+    }
+  }
+
+  &__works {
+    position: relative;
+    z-index: 2;
+    max-width: 1080px;
+    margin: 0 auto 10px;
+    padding: 20px 30px 40px;
+    background: #fbd000;
+
+    @media (max-width: 1120px) {
+      margin: 0 20px 10px;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      z-index: 1;
+      width: 40px;
+      height: 40px;
+      margin: -12px 0 0 -20px;
+      background: #fbd000;
+      rotate: 45deg;
+    }
+
+    &--profile {
+      background: #fff;
+
+      &::before {
+        background: #fff;
+      }
+    }
+
+    &-inner {
+      position: relative;
+      z-index: 2;
+    }
+
+    &-title {
+      padding: 20px 0;
+      font-size: 28px;
+      text-align: center;
+    }
+
+    h2 {
+      margin: 20px 0 0;
+      font-size: 22px;
+      line-height: 1.5;
+    }
+
+    p {
+      margin: 10px 0 0;
+      line-height: 1.8;
+    }
+
+    dl {
+      margin: 40px 0 0 10px;
+      line-height: 1.5;
+
+      &.about__works-list {
+        margin-left: 0;
+        font-size: 13px;
+
+        dt {
+          min-width: 100px;
+        }
+
+        span {
+          font-size: 12px;
+        }
+      }
+
+      div {
+        display: flex;
+      }
+    }
+
+    dt {
+      position: relative;
+      min-width: 64px;
+      padding: 16px 0;
+      border-right: 1px solid #555;
+      font-weight: bold;
+      white-space: nowrap;
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 20px;
+        right: -5px;
+        width: 10px;
+        height: 10px;
+        border-radius: 10px;
+        background: #333;
+      }
+    }
+
+    dd {
+      padding: 16px 0 16px 16px;
+    }
+  }
+}

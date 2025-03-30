@@ -1,0 +1,48 @@
+@mixin bg-stripe-01 {
+  background-color: #fff;
+  background-image: linear-gradient(-45deg, #eee 0%, #eee 25%, transparent 25%, transparent 50%, #eee 50%, #eee 75%, transparent 75%, transparent 100%);
+  background-repeat: repeat;
+  background-size: 10px 10px;
+}
+
+@mixin bg-stripe-02 {
+  background-color: #fff;
+  background-image: linear-gradient(-45deg, #fafbf5 0%, #fafbf5 25%, transparent 25%, transparent 50%, #fafbf5 50%, #fafbf5 75%, transparent 75%, transparent 100%);
+  background-repeat: repeat;
+  background-size: 10px 10px;
+}
+
+@mixin bg-stripe-02-2 {
+  background-color: #fff;
+  background-image: linear-gradient(-45deg, #333132 0%, #333132 25%, transparent 25%, transparent 50%, #333132 50%, #333132 75%, transparent 75%, transparent 100%);
+  background-repeat: repeat;
+  background-size: 10px 10px;
+}
+
+@mixin bg-stripe-03 {
+  background-color: #fff;
+  background-image: linear-gradient(-45deg, #000 0%, #000 25%, transparent 25%, transparent 50%, #000 50%, #000 75%, transparent 75%, transparent 100%);
+  background-repeat: repeat;
+  background-size: 6px 6px;
+}
+
+@mixin bg-stripe-04 {
+  background-color: #fff;
+  background-image: linear-gradient(90deg, #ff5bb2 0%, #ff5bb2 12.5%, transparent 12.5%, transparent 25%, #333333 25%, #333333 37.5%, transparent 37.5%, transparent 50%, #ffff26 50%, #ffff26 62.5%, transparent 62.5%, transparent 75%, #00ff00 75%, #00ff00 87.5%, transparent 87.5%, transparent 100%);
+  background-repeat: repeat;
+  background-size: 40px 40px;
+}
+
+@mixin bg-stripe-04-2 {
+  background-color: #fff;
+  background-image: linear-gradient(-45deg, #ff5bb2 0%, #ff5bb2 12.5%, transparent 12.5%, transparent 25%, #333333 25%, #333333 37.5%, transparent 37.5%, transparent 50%, #333333 50%, #333333 62.5%, transparent 62.5%, transparent 75%, #00ff00 75%, #00ff00 87.5%, transparent 87.5%, transparent 100%);
+  background-repeat: repeat;
+  background-size: 20px 20px;
+}
+
+@mixin bg-stripe-05 {
+  background-color: #fff;
+  background-image: linear-gradient(90deg, #eee 0%, #eee 25%, transparent 25%, transparent 50%, #eee 50%, #eee 75%, transparent 75%, transparent 100%);
+  background-repeat: repeat;
+  background-size: 10px 10px;
+}
