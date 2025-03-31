@@ -38,8 +38,8 @@ if (!isset($_SESSION['csrf_token'])) {
     <link rel="stylesheet" href="/assets/highlight/styles/github-dark.min.css">
     <script src="/assets/highlight/highlight.min.js"></script>
   </head>
-  <body>
-    <div class="js-splash splash" style="position:fixed;top:0;left:0;right:0;bottom:0;z-index:99999;display:flex;justify-content:center;align-items:center;background:#fff;">splash TODO</div>
+  <body data-menu="hide">
+    <!-- <div class="js-splash splash" style="position:fixed;top:0;left:0;right:0;bottom:0;z-index:99999;display:flex;justify-content:center;align-items:center;background:#fff;">splash TODO</div> -->
 
     <div class="mainvisual">
       <div class="mainvisual__content">
@@ -60,8 +60,8 @@ if (!isset($_SESSION['csrf_token'])) {
     </div>
 
     <header class="header js-header">
-      <nav class="nav">
-        <p><a class="js-link" href="/">ホーム</a></p>
+      <nav class="header__nav">
+        <p class="header__home"><a class="js-link" href="/">シンプルシンプルデザイン</a></p>
         <ul>
           <li><a class="js-link" href="/post/">制作ブログ</a></li>
           <li><a class="js-link" href="/service/">サービス</a></li>
@@ -70,7 +70,6 @@ if (!isset($_SESSION['csrf_token'])) {
         </ul>
       </nav>
     </header>
-
 
     <article class="article js-article">
       <div class="article__inner js-article-inner"></div>
@@ -115,22 +114,38 @@ if (!isset($_SESSION['csrf_token'])) {
       <div class="post-nav__inner js-post-nav"></div>
     </div>
 
-    <footer class="footer">
-
-      <p>
-        <a class="js-link" href="/">ホーム</a>
-      </p>
-      <ul class="mainvisual__lists">
-        <li><a class="js-link" href="/post/">制作ブログ</a></li>
-        <li><a class="js-link" href="/service/">サービス</a></li>
-        <li><a class="js-link" href="/about/">事業について</a></li>
-        <li><a class="js-link" href="/contact/">お問い合わせ</a></li>
-      </ul>
-      <div>
-        <a class="js-link" href="/privacy/">プライバシーポリシー</a>
+    <footer class="menu">
+      <div class="menu__nav">
+        <a class="menu__nav-link js-menu-link">
+          <span class="menu__nav-bar1"></span>
+          <span class="menu__nav-bar2"></span>
+          <span class="menu__nav-bar3"></span>
+        </a>
       </div>
 
-      <small class="footer__copyright">SINCE 2015 &copy; シンプルシンプルデザイン</small>
+      <div class="menu__inner">
+        <div class="menu__content">
+          <div>
+            <p class="menu__home">
+              <a class="js-link" href="/">シンプルシンプルデザイン</a>
+            </p>
+            <ul class="menu__list-sns">
+              <li><a href="https://www.facebook.com/smplsmplsdsn" target="_blank">Facebook</a></li>
+              <li><a href="https://x.com/smplsmplsdsn" target="_blank">X</a></li>
+              <li><a href="https://www.youtube.com/@simplesimplesdesign" target="_blank">YouTube</a></li>
+            </ul>
+          </div>
+          <ul class="menu__list-nav">
+            <li><a class="js-link" href="/post/">制作ブログ</a></li>
+            <li><a class="js-link" href="/service/">サービス</a></li>
+            <li><a class="js-link" href="/about/">事業について</a></li>
+            <li><a class="js-link" href="/contact/">お問い合わせ</a></li>
+            <li class="menu__list-nav-small"><a class="js-link" href="/privacy/">プライバシーポリシー</a></li>
+          </ul>
+        </div>
+
+        <small class="menu__copyright">SINCE 2015 &copy; シンプルシンプルデザイン</small>
+      </div>
     </footer>
 
     <script src="/assets/js/jquery-3.7.1.min.js"></script>

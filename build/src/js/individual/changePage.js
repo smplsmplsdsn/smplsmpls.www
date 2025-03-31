@@ -164,8 +164,7 @@ ssd.changePage = async (obj = {}, is_history) => {
     $('meta[property="og:image"]').attr('content', ogp_image)
     $('link[rel="canonical"]').attr('href', canonical)
 
-    $('body').attr('data-page', array_path[0] || 'home')
-
+    $('body').attr('data-menu', 'hide').attr('data-page', array_path[0] || 'home')
 
     // コンテンツを表示する
     _loading.hide()

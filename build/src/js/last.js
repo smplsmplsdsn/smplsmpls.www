@@ -1,4 +1,5 @@
 $(() => {
+
   const path = location.pathname
 
   cmn.historySet((obj) => {
@@ -64,6 +65,23 @@ $(() => {
     // スプラッシュ削除
     cmn.removeSplash()
   })
+})
+
+$(() => {
+  const _body = $('body')
+
+  // メニュー表示切り替え
+  $('.js-menu-link').on('click', () => {
+    const status = _body.attr('data-menu'),
+          after_status = (status === 'show')? 'hide' : 'show'
+
+    console.log(status)
+
+    _body.attr('data-menu', after_status)
+    return false
+  })
+
+
 })
 
 
