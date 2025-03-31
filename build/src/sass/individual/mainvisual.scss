@@ -1,29 +1,50 @@
 .mainvisual {
-  display: none;
-
   position: relative;
-  z-index: 10;
+  z-index: 11;
+
+  display: grid;
   grid-template-columns: 1fr 1fr;
   background: #fff;
 
-  body[data-page="home"] & {
-    display: grid;
+  @include sp {
+    position: relative;
+    display: block;
   }
+
 
   &__content {
     max-width: 300px;
     width: fit-content;
     margin: 0 auto;
-    padding: 40vh 20px 100px;
+    padding: 50% 20px 100px;
 
+    @include sp {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      z-index: 2;
+      padding: 0 0 100px 30px;
+    }
   }
 
   &__visual {
     max-width: 50vw;
     height: 90vh;
     aspect-ratio: 210 / 298;
-    margin-top: 5vh;
     margin-bottom: 5vh;
     background: #ccc;
+
+    @media (max-aspect-ratio: 298/210) and (min-width: 767px) {
+      width: 100%;
+      height: unset;
+      background-color: lightblue;
+    }
+
+    @include sp {
+      width: 75%;
+      max-width: unset;
+      height: unset;
+      margin-left: auto;
+    }
   }
 }

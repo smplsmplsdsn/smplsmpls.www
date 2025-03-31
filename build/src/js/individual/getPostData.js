@@ -28,7 +28,7 @@ ssd.getPostData = async (post_id) => {
         page_title = encodeURIComponent(post_data.title),
         site_name = encodeURIComponent('【シンプルシンプルデザイン】')
 
-  const html_sns_git = (post_data?.acf?.github)? `<li><a class="sns-github" href="${post_data.acf.github}"><span class="icon-github"></span></a></li>`: ``,
+  const html_sns_git = (post_data?.acf?.github)? `<li><a class="sns-github" href="${post_data.acf.github}" target="_blank"><span class="icon-github"></span></a></li>`: ``,
         link_sns_twitter = `https://x.com/share?url=${page_url}&text=${page_title}${site_name}`,
         link_sns_facebook = `https://www.facebook.com/sharer/sharer.php?u=${page_url}`,
         link_sns_line = `https://line.me/R/msg/text/?${site_name}${page_title} ${page_url}`
@@ -36,9 +36,9 @@ ssd.getPostData = async (post_id) => {
   const html_sns = `
 <ul class="sns-list post__sns-list">
   ${html_sns_git}
-  <li><a href="${link_sns_twitter}"><span class="icon-twitter"></span></a></li>
-  <li><a href="${link_sns_facebook}"><span class="icon-facebook"></span></a></li>
-  <li><a href="${link_sns_line}"><span class="icon-line"></span></a></li>
+  <li><a href="${link_sns_twitter}" target="_blank"><span class="icon-twitter"></span></a></li>
+  <li><a href="${link_sns_facebook}" target="_blank"><span class="icon-facebook"></span></a></li>
+  <li><a href="${link_sns_line}" target="_blank"><span class="icon-line"></span></a></li>
 </ul>
   `
 

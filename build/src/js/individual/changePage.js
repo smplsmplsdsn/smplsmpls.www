@@ -184,6 +184,7 @@ ssd.changePage = async (obj = {}, is_history) => {
     // 投稿記事の場合
     if (is_post) {
       hljs.highlightAll()
+      ssd.setPostLink()
     }
 
     // ヒストリー追加

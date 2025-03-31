@@ -41,24 +41,6 @@ if (!isset($_SESSION['csrf_token'])) {
   <body data-menu="hide">
     <!-- <div class="js-splash splash" style="position:fixed;top:0;left:0;right:0;bottom:0;z-index:99999;display:flex;justify-content:center;align-items:center;background:#fff;">splash TODO</div> -->
 
-    <div class="mainvisual">
-      <div class="mainvisual__content">
-        <div class="mainvisual__content-inner">
-          <h1 class="mainvisual__title">
-            ロゴ
-          </h1>
-          <p>シンプルシンプルデザインは、おかげさまで2025年2月で10周年を迎えることができました。これもみなさんのおかげです。ありがとうございます。今後ともどうぞよろしくお願いいたします。</p>
-          <ul class="mainvisual__lists">
-            <li><a class="js-link" href="/post/">制作ブログ</a></li>
-            <li><a class="js-link" href="/service/">サービス</a></li>
-            <li><a class="js-link" href="/about/">事業について</a></li>
-            <li><a class="js-link" href="/contact/">お問い合わせ</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="mainvisual__visual"></div>
-    </div>
-
     <header class="header js-header">
       <nav class="header__nav">
         <p class="header__home"><a class="js-link" href="/">シンプルシンプルデザイン</a></p>
