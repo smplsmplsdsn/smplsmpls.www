@@ -31,11 +31,13 @@ ssd.changePage = async (obj = {}, is_history) => {
         html = ''
 
     let is_error = false,
-        is_post = false
+        is_post = false,
+        is_home = false
 
 
     switch (array_path[0]) {
       case '':
+        is_home = true
         title = ''
         description = ``
         response = await fetch(`/assets/include/pages/home.php`)
@@ -159,14 +161,14 @@ ssd.changePage = async (obj = {}, is_history) => {
       html = await response.text()
     }
 
+    // head情報を更新する
     $('title').html(title)
     $('meta[name="description"]').attr('content', description)
     $('meta[property="og:image"]').attr('content', ogp_image)
     $('link[rel="canonical"]').attr('href', canonical)
 
+    // コンテンツをセットする
     $('body').attr('data-menu', 'hide').attr('data-page', array_path[0] || 'home')
-
-    // コンテンツを表示する
     _loading.hide()
     _article_inner.html(html)
 
@@ -181,10 +183,18 @@ ssd.changePage = async (obj = {}, is_history) => {
       opacity: 1
     }, 350)
 
-    // 投稿記事の場合
-    if (is_post) {
-      hljs.highlightAll()
-      ssd.setPostLink()
+    switch (true) {
+      case is_post:
+        hljs.highlightAll()
+        ssd.setPostLink()
+        break
+      case is_home:
+        if (!ssd.businessquotes.is_init) {
+          ssd.businessquotes.is_init = true
+          ssd.setBusinessquotes()
+        }
+        break
+      // default なし
     }
 
     // ヒストリー追加

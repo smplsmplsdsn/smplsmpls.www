@@ -39,7 +39,7 @@ if (!isset($_SESSION['csrf_token'])) {
     <script src="/assets/highlight/highlight.min.js"></script>
   </head>
   <body data-menu="hide">
-    <div class="js-splash splash" style="position:fixed;top:0;left:0;right:0;bottom:0;z-index:99999;display:flex;justify-content:center;align-items:center;background:#fff;">splash TODO</div>
+    <!-- <div class="js-splash splash" style="position:fixed;top:0;left:0;right:0;bottom:0;z-index:99999;display:flex;justify-content:center;align-items:center;background:#fff;">splash TODO</div> -->
 
     <header class="header js-header">
       <nav class="header__nav">

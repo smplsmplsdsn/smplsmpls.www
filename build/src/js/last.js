@@ -28,6 +28,8 @@ $(() => {
     ssd.businessquotes = {}
     ssd.businessquotes.data = results[0]
     ssd.businessquotes.data = cmn.shuffleArray(ssd.businessquotes.data)
+    ssd.businessquotes.num = 0
+    ssd.businessquotes.is_init = false
 
     // 投稿リスト
     ssd.list = results[1]
@@ -67,10 +69,10 @@ $(() => {
   })
 })
 
+// メニュー切り替え
 $(() => {
   const _body = $('body')
 
-  // メニュー表示切り替え
   $('.js-menu-link').on('click', () => {
     const status = _body.attr('data-menu'),
           after_status = (status === 'show')? 'hide' : 'show'
@@ -80,11 +82,9 @@ $(() => {
     _body.attr('data-menu', after_status)
     return false
   })
-
-
 })
 
-
+// 画面切り替え
 $(document).on('click', '.js-link', function () {
   const href = $(this).attr('href')
 
@@ -92,5 +92,11 @@ $(document).on('click', '.js-link', function () {
     path: href
   }, true)
 
+  return false
+})
+
+// 名言切り替え
+$(document).on('click', '.js-link-businessquotes', () => {
+  ssd.setBusinessquotes()
   return false
 })
