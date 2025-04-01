@@ -1,0 +1,13 @@
+.search {
+  &__title {
+    width: fit-content;
+    margin: auto;
+    padding: 30px 180px;
+    font-size: 20px;
+    line-height: 1.5;
+
+    @include sp {
+      padding: 20px;
+    }
+  }
+}
