@@ -81,8 +81,8 @@ ssd.changePage = async (obj = {}, is_history) => {
 
       case 'post':
         title = `制作ブログ | ${title}`
-        description = ``
-        ogp_image = ``
+        description = `Web制作や映像制作を主軸とした備忘録です。`
+        ogp_image = `/assets/images/post-bg-searchbox.png`
         response = await fetch(`/assets/include/pages/${array_path[0]}.php`)
         html = await response.text()
         break
@@ -105,7 +105,7 @@ ssd.changePage = async (obj = {}, is_history) => {
         search_word = cmn.escapeHtml(search_word)
         title = `「${search_word}」の検索結果 | 制作ブログ | ${title}`
         description = `制作ブログ内で「${search_word}」を含む記事は、${post_search_result_text}`
-        ogp_image = ``
+        ogp_image = `/assets/images/post-bg-searchbox.png`
 
         html = ssd.setPostListSearch(response.ids || [], description)
         html = ssd.htmlSeachForm(search_word) + html
@@ -127,17 +127,18 @@ ssd.changePage = async (obj = {}, is_history) => {
         if (post_filename) {
           is_post = true
           post_filename = decodeURIComponent(post_filename)
-          post_list = ssd.getPostListInfo(post_filename)
 
-          if (post_list) {
-            title = post_list.title
-            description = post_list.description
-            ogp_image = post_list.img
-            html = await ssd.getPostData(post_list.id)
+          const post_data = ssd.getPostData(post_filename)
+
+          if (post_data) {
+            title = `${post_data.title} | ${title}`
+            description = post_data.description
+            ogp_image = post_data.img
+            html = await ssd.getPostHtml(post_data.id)
 
             if (html && html != '') {
               data = {
-                id: post_list.id,
+                id: post_data.id,
                 html: html
               }
             } else {
@@ -147,7 +148,7 @@ ssd.changePage = async (obj = {}, is_history) => {
             is_error = true
           }
         } else {
-          title = ''
+          title = ` | ${title}`
           description = ``
           ogp_image = ``
           html = ssd.setPostCategory(array_path[array_path.length - 1])

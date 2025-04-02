@@ -1,0 +1,31 @@
+.post-page {
+  margin: 0 0 30px;
+  padding: 50px 30px 150px;
+  background: #FCFAF5 url(/assets/images/post-bg-searchbox.png) center calc(100% + 110px) no-repeat;
+  background-size: auto 300px;
+
+  &__inner {
+    max-width: 600px;
+    width: fit-content;
+    margin: auto;
+  }
+
+  &__title {
+    margin: 0 0 10px;
+    text-align: center;
+    font-size: 28px;
+  }
+
+  p {
+    margin: 20px 0 0;
+    line-height: 1.5;
+  }
+}
+
+body[data-page="post"] .article + .post-list {
+  padding-top: 0;
+
+  .post-list__title {
+    display: none;
+  }
+}

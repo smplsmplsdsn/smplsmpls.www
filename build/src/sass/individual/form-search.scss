@@ -1,0 +1,12 @@
+.form-search {
+  display: flex;
+  justify-content: center;
+  padding: 10px 20px;
+  background: url(/assets/images/post-bg-searchbox.png) center center no-repeat;
+  background-size: cover;
+
+  input {
+    width: 100%;
+    max-width: 300px;
+  }
+}
