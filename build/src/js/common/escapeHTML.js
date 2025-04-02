@@ -1,4 +1,4 @@
-cmn.escapeHTML = (str = '') => {
+cmn.escapeHtml = (str = '') => {
   const div = document.createElement('div')
 
   div.textContent = str

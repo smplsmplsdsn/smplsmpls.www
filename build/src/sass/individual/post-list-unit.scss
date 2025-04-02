@@ -16,6 +16,21 @@ $post-list-unit-gap: 20px;
     padding-right: $post-list-unit-gap;
   }
 
+  &:first-child,
+  &:last-child {
+    .post-list--search &,
+    .post-list--category & {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  &__link {
+    display: block;
+    height: 100%;
+    color: #555;
+  }
+
   &__figure {
     display: block;
     width: 100%;
@@ -24,12 +39,6 @@ $post-list-unit-gap: 20px;
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-  }
-
-  &__link {
-    display: block;
-    height: 100%;
-    color: #555;
   }
 
   &__content {
@@ -57,5 +66,29 @@ $post-list-unit-gap: 20px;
 
   &__category {
     display: inline-block;
+  }
+}
+
+.post-list--category,
+.post-list--search {
+
+  @include sp {
+    display: block;
+
+    .post-list-unit {
+      min-width: unset;
+      padding: 0;
+
+      &__link {
+        display: grid;
+        grid-template-columns: 50px 1fr;
+        gap: 10px;
+        padding: 10px;
+      }
+
+      &__figure {
+        aspect-ratio: 1 / 1;
+      }
+    }
   }
 }

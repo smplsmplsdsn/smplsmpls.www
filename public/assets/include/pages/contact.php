@@ -5,7 +5,7 @@
       <p>シンプルシンプルデザインに興味を持っていただき、ありがとうございます。<br>
       1〜3営業日以内に川上よりご連絡いたします。<br>
       <span class="contact__caution">営業メールは、申し訳ありませんが、返信致しかねますのでご了承ください。<span></p>
-      <p><a href="/privacy/">プライバシーポリシー</a>を一読いただき、同意のうえで送信してください。<p>
+      <p>お問い合わせ前に、<a href="/privacy/">プライバシーポリシー</a>を一読いただき、同意のうえで送信してください。<p>
     </div>
     <form class="contact__form js-form-contact" method="post" onsubmit="return false" novalidate>
       <dl>
@@ -16,6 +16,9 @@
           <dd>
             <select name="contact">
               <option value="未選択">選択してください</option>
+              <option value="ボランティア参加について">ボランティア参加について</option>
+              <option value="Webアプリ制作について">Webアプリ制作について</option>
+              <option value="映像制作について">映像制作について</option>
               <option value="その他">その他</option>
             </select>
           </dd>

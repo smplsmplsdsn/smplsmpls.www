@@ -102,7 +102,7 @@ ssd.changePage = async (obj = {}, is_history) => {
         const post_search_result_count = response.count || 0,
               post_search_result_text = (post_search_result_count > 0)? `${post_search_result_count}件見つかりました。` : '見つかりませんでした。'
 
-        search_word = cmn.escapeHTML(search_word)
+        search_word = cmn.escapeHtml(search_word)
         title = `「${search_word}」の検索結果 | 制作ブログ | ${title}`
         description = `制作ブログ内で「${search_word}」を含む記事は、${post_search_result_text}`
         ogp_image = ``
