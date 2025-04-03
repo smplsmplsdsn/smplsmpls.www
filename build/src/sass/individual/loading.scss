@@ -1,10 +1,11 @@
 .loading {
-  position: absolute;
-  top: 0;
-  left: 0;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #fff;
+  &__inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: calc(100vh - $height-header);
+    background: #fff;
+  }
 }

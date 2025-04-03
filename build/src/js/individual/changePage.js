@@ -1,17 +1,13 @@
 ssd.changePage = async (obj = {}, is_history) => {
-  const _article = $('.js-article'),
-        _article_inner = $('.js-article-inner'),
+  const _article_inner = $('.js-article-inner'),
         _loading = $('.js-loading')
 
   // コンテンツを非表示にする
-  _article.css({
-    'min-height': _article.height()
-  })
-
-  _article.animate({
+  _article_inner.animate({
     top: -10,
     opacity: 0
   }, 350, async function () {
+    $(window).scrollTop(0)
     _loading.show()
 
     if (!obj.path) {
@@ -179,13 +175,7 @@ ssd.changePage = async (obj = {}, is_history) => {
     _loading.hide()
     _article_inner.html(html)
 
-    _article.css({
-      'min-height': 'unset'
-    })
-
-    $(window).scrollTop(0)
-
-    _article.animate({
+    _article_inner.animate({
       top: 0,
       opacity: 1
     }, 350)
@@ -194,6 +184,7 @@ ssd.changePage = async (obj = {}, is_history) => {
       case is_post:
         hljs.highlightAll()
         ssd.setPostLink()
+        cmn.setScriptFromText('.js-post-content')
         break
       case is_home:
         if (!ssd.businessquotes.is_init) {

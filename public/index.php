@@ -55,7 +55,11 @@ if (!isset($_SESSION['csrf_token'])) {
 
     <article class="article js-article">
       <div class="article__inner js-article-inner"></div>
-      <div class="loading js-loading">loading...</div>
+      <div class="loading js-loading">
+        <div class="loading__inner">
+          <div class="animation-blinker">loading...</div>
+        </div>
+      </div>
     </article>
 
     <section class="post-list">
