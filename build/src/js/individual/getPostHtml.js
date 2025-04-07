@@ -25,7 +25,7 @@ ssd.getPostHtml = async (post_id) => {
   }
 
   const page_url = encodeURIComponent(`https://simplesimples.com${post_data.link}`),
-        page_title = encodeURIComponent(post_data.title),
+        page_title = encodeURIComponent(cmn.getNormalizeText(post_data.title)),
         site_name = encodeURIComponent('【シンプルシンプルデザイン】')
 
   const html_sns_git = (post_data?.acf?.github)? `<li><a class="sns-github" href="${post_data.acf.github}" target="_blank"><span class="icon-github"></span></a></li>`: ``,
