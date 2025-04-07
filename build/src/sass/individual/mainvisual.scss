@@ -2,7 +2,7 @@ $mainvisual-padding: 0px;
 
 .mainvisual {
   position: relative;
-  z-index: 11;
+  z-index: 999;
 
   display: grid;
   grid-template-columns: 1fr 1fr;

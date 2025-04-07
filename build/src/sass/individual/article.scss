@@ -1,3 +1,7 @@
 .article {
   position: relative;
+
+  &__inner {
+    position: relative;
+  }
 }

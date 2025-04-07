@@ -14,7 +14,7 @@
         position: fixed;
         top: -2px;
         left: 0;
-        z-index: 999;
+        z-index: 998;
         width: $nav_link_size;
         height: $nav_link_size;
       }
@@ -118,7 +118,7 @@ body[data-menu="show"] .menu {
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 999;
+  z-index: 998;
   background: #fff;
   overflow-x: hidden;
   overflow-y: scroll;
