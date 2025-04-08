@@ -4,8 +4,14 @@
  * @param {*} tgt e.g. .js-container
  * @returns
  */
-cmn.setScriptFromText = (tgt) => {
-  let scripts = document.querySelector(tgt).querySelectorAll('script')
+cmn.setScriptFromText = (tgt_el) => {
+  const tgt = document.querySelector(tgt_el)
+
+  if (!tgt) {
+    return
+  }
+
+  const scripts = tgt.querySelectorAll('script')
 
   scripts.forEach(old_script => {
     let new_script = document.createElement('script')
