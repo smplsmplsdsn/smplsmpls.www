@@ -21,7 +21,7 @@ ssd.getPostHtml = async (post_id) => {
   if (update) {
     let update_array = update.split('-')
 
-    update = `(${update_array[0]}年${update_array[1]}月${update_array[2]}日更新)`
+    update = `(${update_array[0]}年${+update_array[1]}月${+update_array[2]}日更新)`
   }
 
   const page_url = encodeURIComponent(`https://simplesimples.com${post_data.link}`),
@@ -29,6 +29,7 @@ ssd.getPostHtml = async (post_id) => {
         site_name = encodeURIComponent('【シンプルシンプルデザイン】')
 
   const html_sns_git = (post_data?.acf?.github)? `<li><a class="sns-github" href="${post_data.acf.github}" target="_blank"><span class="icon-github"></span></a></li>`: ``,
+        html_sns_youtube = (post_data?.acf?.youtube)? `<li><a class="sns-youtube" href="${post_data.acf.youtube}" target="_blank"><span class="icon-youtube"></span></a></li>`: ``,
         link_sns_twitter = `https://x.com/share?url=${page_url}&text=${page_title}${site_name}`,
         link_sns_facebook = `https://www.facebook.com/sharer/sharer.php?u=${page_url}`,
         link_sns_line = `https://line.me/R/msg/text/?${site_name}${page_title} ${page_url}`
@@ -36,11 +37,15 @@ ssd.getPostHtml = async (post_id) => {
   const html_sns = `
 <ul class="sns-list post__sns-list">
   ${html_sns_git}
+  ${html_sns_youtube}
   <li><a href="${link_sns_twitter}" target="_blank"><span class="icon-twitter"></span></a></li>
   <li><a href="${link_sns_facebook}" target="_blank"><span class="icon-facebook"></span></a></li>
   <li><a href="${link_sns_line}" target="_blank"><span class="icon-line"></span></a></li>
 </ul>
   `
+
+  const html_stylesheet = (post_data?.acf?.stylesheet)? `<style>${post_data.acf.stylesheet}</style>`: ``
+  const html_javascript = (post_data?.acf?.javascript)? `<script>${post_data.acf.javascript}</script>`: ``
 
   const html_comment_first = (post_data.comments.length === 0)? '<p class="post-comment__none js-comment-none">この記事の最初のコメントを書いてくれると嬉しいです！</p>': ''
 
@@ -70,6 +75,7 @@ ssd.getPostHtml = async (post_id) => {
   html_comments = (post_data.comments.length === 0)? `` : `<div class="post-comment__list js-comment-list">${html_comments}</div>`
 
   html = `
+${html_stylesheet}
 <main class="post js-post">
   ${image}
   <header class="post__header">
@@ -116,6 +122,7 @@ ssd.getPostHtml = async (post_id) => {
     </aside>
   </div>
 </main>
+${html_javascript}
   `
 
   return html
