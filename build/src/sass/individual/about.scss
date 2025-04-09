@@ -9,16 +9,16 @@
     justify-content: flex-end;
     align-items: flex-end;
     max-width: 1400px;
-    min-height: calc(100vh - 150px);
+    min-height: calc(100vh - $height-header);
 
     @media (max-width:$header-footer-breakpoint) {
-      min-height: calc(100vh - 80px);
+      min-height: calc(100vh - $height-header);
     }
   }
 
   &__headline {
-    margin: 0 0 0 auto;
-    padding: 20px 20px 60px;
+    margin: 0 0 -20px auto;
+    padding: 20px 20px 0;
     font-family: "ヒラギノ明朝 Pro W3","Hiragino Mincho Pro","ＭＳ Ｐ明朝","MS PMincho",serif;
     font-size: clamp(38px, 6vw, 60px);
     font-weight: normal;
@@ -28,9 +28,7 @@
   }
 
   &__statement {
-    padding: 100px 0 100px;
-    background: url(/assets/images/bg-about-statement.png) center bottom no-repeat;
-    background-size: auto 100px;
+    padding: 100px 0 0;
   }
 
   &__title {
@@ -96,15 +94,24 @@
   }
 
   &__description {
-    padding: 0 0 20px;
+    padding: 40px 0 20px;
     background: url(/assets/images/bg-about-description.png) top left repeat;
     background-size: 600px 400px;
   }
 
+  &__profile,
+  &__works {
+    margin: 0 auto;
+    padding: 20px 30px 40px;
+    box-sizing: border-box;
+
+    @media (max-width: 1120px) {
+      margin: 0 20px;
+    }
+  }
+
   &__profile {
-    width: fit-content;
-    margin: auto;
-    padding: 40px 20px;
+    max-width: 1080px;
 
     &-title {
       margin: 0 0 20px;
@@ -137,14 +144,9 @@
   &__works {
     position: relative;
     z-index: 2;
-    max-width: 1080px;
-    margin: 0 auto 10px;
-    padding: 20px 30px 40px;
     background: #fbd000;
 
-    @media (max-width: 1120px) {
-      margin: 0 20px 10px;
-    }
+    max-width: 1020px;
 
     &:last-child {
       margin-bottom: 0;
@@ -199,10 +201,11 @@
 
       &.about__works-list {
         margin-left: 0;
-        font-size: 13px;
+        font-size: 14px;
 
         dt {
           min-width: 100px;
+          text-align: center;
         }
 
         span {

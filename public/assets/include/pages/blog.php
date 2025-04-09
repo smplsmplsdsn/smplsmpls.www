@@ -1,0 +1,1 @@
+<a href="https://kawakamitakenori.com" target="_blank">個人ブログ</a>

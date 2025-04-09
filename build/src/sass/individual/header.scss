@@ -38,6 +38,7 @@
     margin: 0;
     padding: 0 20px;
     list-style: none;
+    font-weight: bold;
 
     @include sp {
       display: none;
@@ -48,5 +49,9 @@
       align-items: center;
       height: $height-header;
     }
+  }
+
+  a {
+    color: #333132;
   }
 }

@@ -3,6 +3,10 @@
   line-height: 1.8;
   font-size: 14px;
 
+  @include sp {
+    padding: 0 10px 10px;
+  }
+
   &__inner {
     display: flex;
     justify-content: center;

@@ -21,6 +21,8 @@ $mainvisual-padding: 0px;
     width: fit-content;
     margin: 0 auto;
     padding: 50% 20px $height-header;
+    font-size: 15px;
+    line-height: 1.5;
 
     @include sp {
       position: absolute;
@@ -41,7 +43,6 @@ $mainvisual-padding: 0px;
     @media (max-aspect-ratio: 298/210) and (min-width: 767px) {
       width: 100%;
       height: unset;
-      background-color: lightblue;
     }
 
     @include sp {
@@ -49,6 +50,26 @@ $mainvisual-padding: 0px;
       max-width: unset;
       height: unset;
       margin-left: auto;
+    }
+  }
+
+  &__title {
+    font-size: 100px;
+  }
+
+  ul {
+    margin: 20px 0 0 0;
+    padding: 0 0 0 10px;
+    list-style: none;
+    line-height: 1.8;
+  }
+
+  a {
+    color: #333132;
+
+    &::before {
+      content: '-';
+      padding-right: 5px;
     }
   }
 }

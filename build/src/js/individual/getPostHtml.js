@@ -38,9 +38,9 @@ ssd.getPostHtml = async (post_id) => {
 <ul class="sns-list post__sns-list">
   ${html_sns_git}
   ${html_sns_youtube}
-  <li><a href="${link_sns_twitter}" target="_blank"><span class="icon-twitter"></span></a></li>
-  <li><a href="${link_sns_facebook}" target="_blank"><span class="icon-facebook"></span></a></li>
-  <li><a href="${link_sns_line}" target="_blank"><span class="icon-line"></span></a></li>
+  <li><a class="sns-twitter" href="${link_sns_twitter}" target="_blank"><span class="icon-x"></span></a></li>
+  <li><a class="sns-facebook" href="${link_sns_facebook}" target="_blank"><span class="icon-facebook"></span></a></li>
+  <li><a class="sns-line" href="${link_sns_line}" target="_blank"><span class="icon-icon-line"></span></a></li>
 </ul>
   `
 

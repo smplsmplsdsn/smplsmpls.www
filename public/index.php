@@ -35,6 +35,7 @@ if (!isset($_SESSION['csrf_token'])) {
     <link rel="stylesheet" href="/assets/css/common.min.css?<?php echo filemtime('./assets/css/common.min.css'); ?>">
     <link rel="canonical" href="">
 
+    <link rel="stylesheet" href="/assets/icomoon/style.css?<?php echo filemtime('./assets/icomoon/style.css'); ?>">
     <link rel="stylesheet" href="/assets/highlight/styles/github-dark.min.css">
     <script src="/assets/highlight/highlight.min.js"></script>
   </head>
@@ -43,7 +44,7 @@ if (!isset($_SESSION['csrf_token'])) {
 
     <header class="header js-header">
       <nav class="header__nav">
-        <p class="header__home"><a class="js-link" href="/">シンプルシンプルデザイン</a></p>
+        <p class="header__home"><a class="js-link" href="/"><span class="icon-logo1"></span></a></p>
         <ul>
           <li><a class="js-link" href="/post/">制作ブログ</a></li>
           <li><a class="js-link" href="/service/">サービス</a></li>
@@ -113,12 +114,12 @@ if (!isset($_SESSION['csrf_token'])) {
         <div class="menu__content">
           <div>
             <p class="menu__home">
-              <a class="js-link" href="/">シンプルシンプルデザイン</a>
+              <a class="js-link" href="/"><span class="icon-logo1"></span></a>
             </p>
-            <ul class="menu__list-sns">
-              <li><a href="https://www.facebook.com/smplsmplsdsn" target="_blank">Facebook</a></li>
-              <li><a href="https://x.com/smplsmplsdsn" target="_blank">X</a></li>
-              <li><a href="https://www.youtube.com/@simplesimplesdesign" target="_blank">YouTube</a></li>
+            <ul class="menu__list-sns sns-list">
+              <li><a class="sns-facebook" href="https://www.facebook.com/smplsmplsdsn" target="_blank"><span class="icon-facebook"></span></a></li>
+              <li><a class="sns-twitter" href="https://x.com/smplsmplsdsn" target="_blank"><span class="icon-x"></span></a></li>
+              <li><a class="sns-youtube" href="https://www.youtube.com/@simplesimplesdesign" target="_blank"><span class="icon-youtube"></span></a></li>
             </ul>
           </div>
           <ul class="menu__list-nav">

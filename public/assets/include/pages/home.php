@@ -2,7 +2,7 @@
   <div class="mainvisual__content">
     <div class="mainvisual__content-inner">
       <h1 class="mainvisual__title">
-        シンプルシンプルデザイン
+        <span class="icon-logo2-1"></span>
       </h1>
       <p>シンプルシンプルデザインは、おかげさまで2025年2月で10周年を迎えることができました。これもみなさんのおかげです。ありがとうございます。今後ともどうぞよろしくお願いいたします。</p>
       <ul class="mainvisual__lists">
