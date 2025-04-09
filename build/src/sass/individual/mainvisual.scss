@@ -25,11 +25,8 @@ $mainvisual-padding: 0px;
     line-height: 1.5;
 
     @include sp {
-      position: absolute;
-      left: 0;
-      bottom: 0;
+      position: relative;
       z-index: 2;
-      padding: 0 0 $height-header 30px;
     }
   }
 
@@ -46,6 +43,10 @@ $mainvisual-padding: 0px;
     }
 
     @include sp {
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: 1;
       width: 75%;
       max-width: unset;
       height: unset;
@@ -57,8 +58,12 @@ $mainvisual-padding: 0px;
     font-size: 100px;
   }
 
+  p {
+    margin-bottom: 20px;
+  }
+
   ul {
-    margin: 20px 0 0 0;
+    margin: 0;
     padding: 0 0 0 10px;
     list-style: none;
     line-height: 1.8;
