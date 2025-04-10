@@ -97,6 +97,6 @@ $(document).on('click', '.js-link', function () {
 
 // 名言切り替え
 $(document).on('click', '.js-link-businessquotes', () => {
-  ssd.setBusinessquotes()
+  ssd.setBusinessquotes(true)
   return false
 })

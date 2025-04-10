@@ -188,10 +188,7 @@ ssd.changePage = async (obj = {}, is_history) => {
         cmn.setScriptFromText('.js-post-content')
         break
       case is_home:
-        if (!ssd.businessquotes.is_init) {
-          ssd.businessquotes.is_init = true
-          ssd.setBusinessquotes()
-        }
+        ssd.setBusinessquotes()
         break
       // default なし
     }
