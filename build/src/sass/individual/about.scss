@@ -97,17 +97,17 @@
     padding: 40px 0 20px;
     background: url(/assets/images/bg-about-description.png) top left repeat;
     background-size: 600px 400px;
+
+    @media (max-width: 1120px) {
+      padding: 20px 0 0;
+    }
   }
 
   &__profile,
   &__works {
     margin: 0 auto;
-    padding: 20px 30px 40px;
+    padding: 30px 30px 40px;
     box-sizing: border-box;
-
-    @media (max-width: 1120px) {
-      margin: 0 20px;
-    }
   }
 
   &__profile {
