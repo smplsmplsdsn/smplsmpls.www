@@ -67,6 +67,13 @@ $mainvisual-padding: 0px;
     padding: 0 0 0 10px;
     list-style: none;
     line-height: 1.8;
+    font-weight: bold;
+
+    a {
+      display: inline-flex;
+      align-items: center;
+      height: 30px;
+    }
   }
 
   a {

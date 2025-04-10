@@ -4,6 +4,6 @@
     <form class="form-search js-form-search" action="/search/" method="get" style="background:unset;">
       <input type="text" name="q" value="" placeholder="制作ブログ内を検索">
     </form>
-    <p>2006年から運営しているWeb制作や映像制作を主軸とした備忘録です。</p>
+    <p>2006年からWeb制作ブログを備忘録として不定期に書き始めました。2015年からは、映像制作やフリーランスの実情に関する情報も追加しています。</p>
   </div>
 </div>

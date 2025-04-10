@@ -12,7 +12,7 @@
 
       &-link {
         position: fixed;
-        top: -2px;
+        top: 0;
         left: 0;
         z-index: 998;
         width: $nav_link_size;
@@ -140,10 +140,14 @@ body[data-menu="show"] .menu {
 
   &__home {
     margin: 0 0 40px;
+
+    a {
+      color: #333;
+    }
   }
 
   &__list-sns {
-    display: flex;
+    justify-content: flex-start;
     gap: 20px;
     margin: 20px 0;
     padding: 0;
@@ -170,6 +174,7 @@ body[data-menu="show"] .menu {
     a {
       display: block;
       padding: 20px 10px;
+      color: #333;
     }
 
 
@@ -177,14 +182,9 @@ body[data-menu="show"] .menu {
 
   &__copyright {
     display: block;
-    padding: 20px 0 0;
-    text-align: center;
+    padding: 20px 0 0 10px;
     font-weight: normal;
     font-size: 13px;
     letter-spacing: 0;
-  }
-
-  a {
-    color: #333;
   }
 }
