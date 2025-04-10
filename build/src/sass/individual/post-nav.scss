@@ -4,7 +4,7 @@
   font-size: 14px;
 
   @include sp {
-    padding: 0 10px 10px;
+    padding: 0 5px 5px;
   }
 
   &__inner {
@@ -19,9 +19,6 @@
       padding: 20px;
     }
   }
-
-
-
 
   [data-category-id="0"],
   [data-category-id="2"] {
