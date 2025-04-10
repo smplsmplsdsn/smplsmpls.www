@@ -113,10 +113,10 @@ $color-alert: #c00;
 
 	&__message {
 		display: none;
-		margin: 1rem 0 0;
+		width: fit-content;
+		margin: 10px 0 10px auto;
 		color: #8BB15F;
 		font-weight: bold;
-		text-align: right;
 
 		&.caution {
 			color: $color-alert;
