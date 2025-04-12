@@ -258,7 +258,8 @@
 
   &__feature {
     padding: 100px 20px;
-    border-bottom: 1px solid #f0f0f0;
+    border-top: 1px solid #fafafa;
+    border-bottom: 1px solid #fafafa;
     background:
       repeating-linear-gradient(0deg, #f0f0f0 0px, #f0f0f0 1px, transparent 1px, transparent 15px),
       repeating-linear-gradient(90deg, #f0f0f0 0px, #f0f0f0 1px, transparent 1px, transparent 15px);
