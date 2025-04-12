@@ -5,9 +5,9 @@
 
   <div class="about__statement">
     <section class="about__section">
-      <h1 class="about__title">
+      <h2 class="about__title">
         <span>人に優しく</span>
-      </h1>
+      </h2>
       <div class="about__inner">
         <div class="about__content">
           <p>人として。<br>責任力と誠実さを尊重します。<br>事業として利益を求めることはもちろん重要ですが、その前に人として人と向き合うことを重視します。</p>
@@ -17,9 +17,9 @@
     </section>
 
     <section class="about__section">
-      <h1 class="about__title">
+      <h2 class="about__title">
         <span>自他をほめ</span>
-      </h1>
+      </h2>
       <div class="about__inner">
         <div class="about__content">
           <ul>
@@ -35,9 +35,9 @@
     </section>
 
     <section class="about__section">
-      <h1 class="about__title">
+      <h2 class="about__title">
         <span>助け合い</span>
-      </h1>
+      </h2>
       <div class="about__inner">
         <div class="about__content">
           <p>数学では「負」と「負」を掛け合わせると「正」になりますが、シンプルシンプルデザインではこの考えは当てはまりません。どちらか(もしくは双方)が負担となる助け合いではなく、前向きな関係での助け合いを行います。「困っている人を助けるな」「見返りを求めろ」と言っているのでは決してありません。その結果をイメージするようにします。助け合う基準、それは「お互いがハッピーになりそうかどうか」です。</p>
@@ -47,9 +47,9 @@
     </section>
 
     <section class="about__section">
-      <h1 class="about__title">
+      <h2 class="about__title">
         <span>楽しくする</span>
-      </h1>
+      </h2>
       <div class="about__inner">
         <div class="about__content">
           <p>自他ともに「楽しい！」と感じられるサービスや製品を創り続けます。「楽しんでる？」と聞かれたら「うん」と言える、「楽しんでる？」と聞いたら「まあね」と答えてくれる、そんな関係を築き上げられるような事業展開を目指します。</p>
@@ -62,7 +62,7 @@
 
   <div class="about__description">
     <section class="about__profile">
-      <h1 class="about__profile-title">事業概要</h1>
+      <h2 class="about__profile-title">事業概要</h2>
       <table class="about__profile-table">
       <tr>
           <th>事業名(屋号)</th>
@@ -100,7 +100,7 @@
 
     <section class="about__works">
       <div class="about__works-inner">
-        <h1 class="about__works-title">制作実績にかえて</h1>
+        <h2 class="about__works-title">制作実績にかえて</h2>
 
         <h2>おかげさまでWeb業界歴20年が経ちました</h2>
         <p>2025年2月現在、Web業界に携わって20年が経ち、2015年に独立して10年が経ちました。<br>
@@ -150,7 +150,7 @@
 
     <section class="about__works about__works--profile">
       <div class="about__works-inner">
-        <h1 class="about__works-title">代表プロフィール</h1>
+        <h2 class="about__works-title">代表プロフィール</h2>
 
         <p>川上武範（かわかみたけのり）。1975年仙台生まれ、埼玉育ち、東京在住。争いごとは苦手。ロジカル思考ですが、温厚で情にあつく、「優しい」とよく言われます。複雑なことをシンプルにする思考を持ち合わせ、情報設計やUI/UXデザインが得意です。アート全般が好きで、専門知識を持ち合わせていませんが、自分なりの解釈を加えながら鑑賞することを楽しんでいます。</p>
 
@@ -201,9 +201,13 @@
 
   </div>
 
-  (コンテンツ準備中)
-  MEMO
-  専門分野と得意分野の紹介。
-  制作実績はあえて、この事業紹介とオリジナルサービスに言及する。動画で用意するのもありかも。
-
+  <div class="about__feature">
+    <h2></h2>
+    <section>
+    (コンテンツ準備中)
+      MEMO
+      専門分野と得意分野の紹介。
+      制作実績はあえて、この事業紹介とオリジナルサービスに言及する。動画で用意するのもありかも。
+    </section>
+  </div>
 </div>

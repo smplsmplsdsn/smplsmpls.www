@@ -255,4 +255,13 @@
       padding: 16px 0 16px 16px;
     }
   }
+
+  &__feature {
+    padding: 100px 20px;
+    border-bottom: 1px solid #f0f0f0;
+    background:
+      repeating-linear-gradient(0deg, #f0f0f0 0px, #f0f0f0 1px, transparent 1px, transparent 15px),
+      repeating-linear-gradient(90deg, #f0f0f0 0px, #f0f0f0 1px, transparent 1px, transparent 15px);
+    background-size: 12px 12px;
+  }
 }
