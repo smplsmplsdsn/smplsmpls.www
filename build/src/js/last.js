@@ -35,12 +35,16 @@ $(() => {
     ssd.list = results[1]
 
     // 人気投稿リスト
-    ssd.list_popular = results[2]?.ids.split(',').map(item => Number(item))
-    ssd.list_popular = ssd.list.filter(item => ssd.list_popular.includes(item.id))
+    const popular_ids = results[2]?.ids.split(',').map(id => Number(id)) || []
+    ssd.list_popular = popular_ids
+      .map(id => ssd.list.find(item => item.id === id))
+      .filter(item => item !== undefined)
 
     // 最近コメントありの投稿リスト
-    ssd.list_comment = results[3]?.ids.split(',').map(item => Number(item))
-    ssd.list_comment = ssd.list.filter(item => ssd.list_comment.includes(item.id))
+    const comment_ids = results[3]?.ids.split(',').map(id => Number(id)) || []
+    ssd.list_comment = comment_ids
+      .map(id => ssd.list.find(item => item.id === id))
+      .filter(item => item !== undefined)
 
     // カテゴリデータ
     ssd.category = results[4]

@@ -42,7 +42,7 @@ ssd.changePage = async (obj = {}, is_history) => {
 
       case 'blog':
       case 'moviereview':
-        title = `個人ブログは引っ越しました | ${title}`
+        title = `個人ブログは引越ししました | ${title}`
         description = `個人ブログは別ドメインに引っ越ししました。ぜひ、引っ越し先をご覧ください。`
         response = await fetch(`/assets/include/pages/move.php`)
         html = await response.text()
