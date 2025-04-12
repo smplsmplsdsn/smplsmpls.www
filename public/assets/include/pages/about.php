@@ -109,37 +109,37 @@
         <h2>制作実績にかえて、お取引先を振り返る</h2>
         <p>ここで、独立後のクライアントを紹介します（敬称は「御中」とするところも、親しみを込めて「様」としています）。</p>
 
-        <dl class="about__works-list">
+        <dl class="about__works-list about__works-list--type2">
           <div>
-            <dt>2015</dt>
+            <dt>2015年</dt>
             <dd>東急ステイサービス株式会社様 / 株式会社ソラボ様 / 株式会社小舟社様 / ゆいまるWeb様 / ケムリ参様 / 野津様</dd>
           </div>
           <div>
-            <dt>2016</dt>
+            <dt>2016年</dt>
             <dd>チームラボ株式会社様 / 株式会社クリエイティブ様</dd>
           </div>
           <div>
-            <dt>2017</dt>
+            <dt>2017年</dt>
             <dd>LanCul株式会社様 / 株式会社ウェルビー様 / 株式会社Gzブレイン様 / 株式会社カイト様</dd>
           </div>
           <div>
-            <dt>2018</dt>
+            <dt>2018年</dt>
             <dd>株式会社スイッチ・メディア・ラボ様</dd>
           </div>
           <div>
-            <dt>2019</dt>
+            <dt>2019年</dt>
             <dd>株式会社ランセス様 / 株式会社東洋経済新報社様</dd>
           </div>
           <div>
-            <dt>2021</dt>
+            <dt>2021年</dt>
             <dd>株式会社DAY DREAM様 / 株式会社Legame Gruppo様 / 世界遺産ハンター.com様</dd>
           </div>
           <div>
-            <dt>2022</dt>
+            <dt>2022年</dt>
             <dd>株式会社Branding Engineer様</dd>
           </div>
           <div>
-            <dt>2024</dt>
+            <dt>2024年</dt>
             <dd>株式会社クオルツ様 / 株式会社ライム商会様 / SCSolution様</dd>
           </div>
         </dl>

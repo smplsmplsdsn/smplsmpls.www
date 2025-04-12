@@ -113,6 +113,10 @@
     margin: 0 auto;
     padding: 30px 30px 40px;
     box-sizing: border-box;
+
+    &-title {
+      font-size: 24px;
+    }
   }
 
   &__profile {
@@ -120,7 +124,6 @@
 
     &-title {
       margin: 0 0 20px;
-      font-size: 24px;
       text-align: center;
       letter-spacing: 0.5em;
     }
@@ -185,7 +188,6 @@
 
     &-title {
       padding: 20px 0;
-      font-size: 28px;
       text-align: center;
     }
 
@@ -210,11 +212,17 @@
 
         dt {
           min-width: 100px;
-          text-align: center;
+          text-align: right;
         }
 
         span {
           font-size: 12px;
+        }
+      }
+
+      &.about__works-list--type2 {
+        dt {
+          min-width: 65px;
         }
       }
 
@@ -226,7 +234,7 @@
     dt {
       position: relative;
       min-width: 64px;
-      padding: 16px 0;
+      padding: 16px 16px 16px 0;
       border-right: 1px solid #555;
       font-weight: bold;
       white-space: nowrap;
