@@ -80,8 +80,13 @@ body[data-menu="hide"] .menu {
 
   &__content {
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 30px;
+
+    @include sp {
+      justify-content: center;
+    }
   }
 
   &__home {
@@ -95,6 +100,11 @@ body[data-menu="hide"] .menu {
   &__list-sns {
     &.sns-list {
       justify-content: flex-start;
+
+      @include sp {
+        margin-top: 20px;
+        justify-content: center;
+      }
     }
   }
 
@@ -106,6 +116,12 @@ body[data-menu="hide"] .menu {
     padding: 0;
     list-style: none;
     font-size: 15px;
+
+    @include sp {
+      justify-content: center;
+      gap: 20px;
+      margin: 0 0 20px;
+    }
 
     a {
       display: inline-block;
