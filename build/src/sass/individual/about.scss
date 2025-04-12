@@ -10,6 +10,7 @@
     align-items: flex-end;
     max-width: 1400px;
     min-height: calc(100vh - $height-header);
+    margin: auto;
 
     @media (max-width:$header-footer-breakpoint) {
       min-height: calc(100vh - $height-header);
@@ -20,7 +21,7 @@
     margin: 0 0 -20px auto;
     padding: 20px 20px 0;
     font-family: "ヒラギノ明朝 Pro W3","Hiragino Mincho Pro","ＭＳ Ｐ明朝","MS PMincho",serif;
-    font-size: clamp(38px, 6vw, 60px);
+    font-size: clamp(34px, 6vw, 58px);
     font-weight: normal;
     line-height: 1.5;
     writing-mode: vertical-rl;
@@ -39,6 +40,10 @@
     text-align: right;
     font-family: "ヒラギノ明朝 Pro W3","Hiragino Mincho Pro","ＭＳ Ｐ明朝","MS PMincho",serif;
     font-size: 32px;
+
+    @include sp {
+      font-size: 26px;
+    }
 
     .about__section:nth-child(2n) & {
       margin: 0 0 0 auto;
