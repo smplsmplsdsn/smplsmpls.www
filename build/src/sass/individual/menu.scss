@@ -74,7 +74,7 @@
 }
 
 body[data-menu="hide"] .menu {
-  padding: 20px;
+  padding: 30px 20px 20px;
   background: #f2f2f2;
   color: #6e6e6e;
 
@@ -90,7 +90,7 @@ body[data-menu="hide"] .menu {
   }
 
   &__home {
-    margin: 0 0 10px;
+    margin: 0 0 20px;
 
     a {
       color: #333132;
