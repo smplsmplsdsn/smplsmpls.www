@@ -88,6 +88,7 @@ ssd.changePage = async (obj = {}, is_history) => {
         let search_word = cmn.getParam(location.search).q
 
         if (!search_word) {
+          ssd.loading_page = '404'
           ssd.changePage()
           return
         }
@@ -156,6 +157,11 @@ ssd.changePage = async (obj = {}, is_history) => {
 
       default:
         is_error = true
+    }
+
+    if (ssd.loading_page != obj.path) {
+      console.error('Diff Page', ssd.loading_page, obj.path)
+      return false
     }
 
     if (is_error) {

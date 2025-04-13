@@ -1,8 +1,11 @@
+let IS_TEST = true;
+
 $(() => {
 
   const path = location.pathname
 
   cmn.historySet((obj) => {
+    ssd.loading_page = path
 
     if (obj) {
       ssd.changePage(obj)
@@ -50,6 +53,7 @@ $(() => {
     ssd.category = results[4]
 
     // 画面セット
+    ssd.loading_page = path
     ssd.changePage({
       path: path
     })
@@ -64,6 +68,7 @@ $(() => {
 
     console.error('Ohh, somthing happens...', error)
 
+    ssd.loading_page = '/system/'
     ssd.changePage({
       path: '/system/'
     })
@@ -92,6 +97,7 @@ $(() => {
 $(document).on('click', '.js-link', function () {
   const href = $(this).attr('href')
 
+  ssd.loading_page = href
   ssd.changePage({
     path: href
   }, true)
