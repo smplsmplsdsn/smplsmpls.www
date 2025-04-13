@@ -87,26 +87,24 @@ ssd.changePage = async (obj = {}, is_history) => {
       case 'search':
         let search_word = cmn.getParam(location.search).q
 
-        if (!search_word) {
-          ssd.loading_page = '404'
-          ssd.changePage()
-          return
+        if (search_word) {
+          search_word = decodeURIComponent(search_word)
+
+          response = await ssd.loadPostSearch(search_word)
+
+          const post_search_result_count = response.count || 0,
+                post_search_result_text = (post_search_result_count > 0)? `${post_search_result_count}件見つかりました。` : '見つかりませんでした。'
+
+          search_word = cmn.htmlEscape(search_word)
+          title = `「${search_word}」の検索結果 | 制作ブログ | ${title}`
+          description = `制作ブログ内で「${search_word}」を含む記事は、${post_search_result_text}`
+          ogp_image = `/assets/images/post-bg-searchbox.png`
+
+          html = ssd.setPostListSearch(response.ids || [], description)
+          html = ssd.htmlSeachForm(search_word) + html
+        } else {
+          is_error = true
         }
-
-        search_word = decodeURIComponent(search_word)
-
-        response = await ssd.loadPostSearch(search_word)
-
-        const post_search_result_count = response.count || 0,
-              post_search_result_text = (post_search_result_count > 0)? `${post_search_result_count}件見つかりました。` : '見つかりませんでした。'
-
-        search_word = cmn.htmlEscape(search_word)
-        title = `「${search_word}」の検索結果 | 制作ブログ | ${title}`
-        description = `制作ブログ内で「${search_word}」を含む記事は、${post_search_result_text}`
-        ogp_image = `/assets/images/post-bg-searchbox.png`
-
-        html = ssd.setPostListSearch(response.ids || [], description)
-        html = ssd.htmlSeachForm(search_word) + html
         break
 
       case 'web':
