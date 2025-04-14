@@ -19,6 +19,10 @@ ssd.setPostLists15 = () => {
   $('.js-post-popular-lists').html(html_popular)
   $('.js-post-comment-lists').html(html_comment)
 
+  cmn.loadImg($('.js-post-recenlty-lists'))
+  cmn.loadImg($('.js-post-popular-lists'))
+  cmn.loadImg($('.js-post-comment-lists'))
+
   scroll.show('.js-scroll-post-recenlty')
   scroll.show('.js-scroll-post-popular')
   scroll.show('.js-scroll-post-comment')

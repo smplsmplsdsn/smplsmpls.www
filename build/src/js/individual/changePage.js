@@ -181,6 +181,7 @@ ssd.changePage = async (obj = {}, is_history) => {
     $('body').attr('data-menu', 'hide').attr('data-page', array_path[0] || 'home')
     _loading.hide()
     _article_inner.html(html)
+    cmn.loadImg(_article_inner)
 
     _article_inner.animate({
       top: 0,

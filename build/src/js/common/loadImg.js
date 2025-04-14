@@ -1,16 +1,29 @@
 /**
- * data-src値 を 読み込み成功時のみ、src属性に変更する
+ * img data-src値 を 読み込み成功時のみ、src属性に変更する
+ * background-image  * data-bg値 を 読み込み成功時のみ、style属性に変更する
  */
 cmn.loadImg = (tgt) => {
-  $('img', tgt).each(function () {
+  $('img, .js-lazybg', tgt).each(function () {
     const _this = $(this),
-          src = _this.attr('data-src')
+          src = _this.attr('data-src'),
+          bg = _this.attr('data-bg')
 
-    const temp_img = new Image()
+    let temp_img
 
-    temp_img.onload = () => {
-      _this.attr('src', src).removeAttr('data-src')
+    if (typeof src === 'string' && src !== '') {
+      temp_img = new Image()
+      temp_img.onload = () => {
+        _this.attr('src', src).removeAttr('data-src')
+      }
+      temp_img.src = src
     }
-    temp_img.src = src
+
+    if (typeof bg === 'string' && bg !== '') {
+      temp_img = new Image()
+      temp_img.onload = () => {
+        _this.attr('style', `background-image:url(${bg});`).removeAttr('data-bg')
+      }
+      temp_img.src = bg
+    }
   })
 }
