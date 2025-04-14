@@ -110,3 +110,8 @@ $(document).on('click', '.js-link-businessquotes', () => {
   ssd.setBusinessquotes(true)
   return false
 })
+
+// フォーム情報変更
+$(document).on('input', '.js-form-contact', () => {
+  cmn.saveFormData('.js-form-contact')
+})

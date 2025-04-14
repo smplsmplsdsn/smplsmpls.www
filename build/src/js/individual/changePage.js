@@ -28,6 +28,7 @@ ssd.changePage = async (obj = {}, is_history) => {
 
     let is_error = false,
         is_post = false,
+        is_contact = false,
         is_home = false
 
 
@@ -63,6 +64,7 @@ ssd.changePage = async (obj = {}, is_history) => {
         break
 
       case 'contact':
+        is_contact = true
         title = `お問い合わせ | ${title}`
         description = ``
         response = await fetch(`/assets/include/pages/${array_path[0]}.php`)
@@ -194,6 +196,10 @@ ssd.changePage = async (obj = {}, is_history) => {
       case is_home:
         ssd.setBusinessquotes()
         break
+      case is_contact:
+        cmn.loadFormData('.js-form-contact')
+        break
+
       // default なし
     }
 

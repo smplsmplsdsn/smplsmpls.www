@@ -111,6 +111,8 @@ ${data.content.trim()}
         _contact_success_hide.hide()
         _contact_success.show()
         $('[name="name"]').val('')
+
+        cmn.storageDelSS('.js-form-contact')
       }
 
       is_sending = false
