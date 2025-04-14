@@ -21,7 +21,10 @@ cmn.loadJson = async (filename = '') => {
     })
 
     if (!response.ok) {
-      throw new Error(`HTTPエラー: ${response.status}`)
+      return {
+        status: 'fail',
+        message: `HTTPエラー: ${response.status}`
+      }
     }
 
     return await response.json()
