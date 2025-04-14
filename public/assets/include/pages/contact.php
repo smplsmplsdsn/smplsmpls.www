@@ -17,6 +17,7 @@
             <select name="contact">
               <option value="未選択">選択してください</option>
               <option value="ボランティア参加について">ボランティア参加について</option>
+              <option value="プロジェクト参画、案件参画について">プロジェクト参画、案件参画について</option>
               <option value="Webアプリ制作について">Webアプリ制作について</option>
               <option value="映像制作について">映像制作について</option>
               <option value="その他">その他</option>
