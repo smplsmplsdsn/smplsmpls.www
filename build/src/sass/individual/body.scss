@@ -1,0 +1,8 @@
+body {
+  opacity: 0;
+  transition: opacity 0.65s;
+
+  &.show {
+    opacity: 1;
+  }
+}

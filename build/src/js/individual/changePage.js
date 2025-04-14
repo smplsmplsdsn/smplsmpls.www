@@ -210,7 +210,7 @@ ssd.changePage = async (obj = {}, is_history) => {
       cmn.historyPushState(history_obj, '', obj.path)
     }
 
-    // スプラッシュ削除（TODO タイムラグの処理）
+    // スプラッシュ削除
     if (!ssd.is_delete_splash) {
       ssd.is_delete_splash = true
       cmn.removeSplash()
