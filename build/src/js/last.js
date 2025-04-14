@@ -1,15 +1,15 @@
-let IS_TEST = true;
-
 $(() => {
+  cmn.storageDelSS('.js-form-contact')
 
   const path = location.pathname
 
   cmn.historySet((obj) => {
-    ssd.loading_page = path
 
     if (obj) {
+      ssd.loading_page = obj.path
       ssd.changePage(obj)
     } else {
+      ssd.loading_page = path
       ssd.changePage({
         path: path
       })
