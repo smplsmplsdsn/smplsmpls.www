@@ -5,9 +5,12 @@ $post-list-unit-gap: 20px;
 }
 
 .post-list-unit {
-  width: 240px;
   min-width: 240px;
   padding: 0 0 20px;
+
+  .scroll & {
+    width: 240px;
+  }
 
   &:first-child {
     padding-left: $post-list-unit-gap;
