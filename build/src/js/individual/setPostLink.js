@@ -16,8 +16,10 @@ ssd.setPostLink = () => {
 			}
 
     // サイト内リンクの場合
-    } else if (href.match(/^\//) || href.match(/^https:\/\/simplesimples\.com/)) {
+    } else if (href.match(/^\//) || href.match(/^https:\/\/simplesimples\.com/) || href.match(/^https:\/\/data\.simplesimples\.com/)) {
 			_this.removeAttr("target")
+
+			href = href.replace(/^https:\/\/data\.simplesimples\.com/, '')
 
     // 外部リンクの場合
 		} else {
