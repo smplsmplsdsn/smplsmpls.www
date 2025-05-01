@@ -5,7 +5,7 @@ cmn.removeSplash = () => {
 
   setTimeout(() => {
     $('.js-splash').fadeOut(() => {
-      $('body').addClass('show')
+      $('.js-splash').remove()
     })
   }, diff)
 }
