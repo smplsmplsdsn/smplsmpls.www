@@ -77,7 +77,7 @@ if (!isset($_SESSION['csrf_token'])) {
           </div>
         </div>
       </section>
-      <section class="post-list__section">
+      <section class="post-list__section" style="display:none;">
         <h3 class="post-list__section-title">よく読まれている15記事</h3>
         <div class="scroll js-scroll-post-popular">
           <div class="scroll__outer">
